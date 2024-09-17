@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class Datasource(ABC):
     """
     Abstract base class for data sources.
