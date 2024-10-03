@@ -12,11 +12,11 @@ class Layer(ABC):
     It defines the structure and behavior that all derived layers must implement.
 
     Attributes:
-        i_layer (Datasource | Self | [Self]): An instance of a Datasource, another Layer instance, or a list of Layer instances
+        m_source (Datasource | Self | [Self]): An instance of a Datasource, another Layer instance, or a list of Layer instances
         that this layer interacts with.
 
     Methods:
-        __init__(i_layer: Datasource | Self | [Self]):
+        __init__(i_source: Datasource | Self | [Self]):
             Initializes the layer with a specified data source or layer.
 
         get() -> DataFrame:
@@ -28,12 +28,12 @@ class Layer(ABC):
     """
 
     @abstractmethod
-    def __init__(self, i_layer: Datasource | Self | [Self]):
+    def __init__(self, i_source: Datasource | Self | [Self]):
         """
         Initializes the Layer instance.
 
         Args:
-            i_layer (Datasource | Self | [Self]): An instance of Datasource, another Layer instance, or a list of Layer instances
+            i_source (Datasource | Self | [Self]): An instance of Datasource, another Layer instance, or a list of Layer instances
             that this layer will use for data operations.
 
         """
