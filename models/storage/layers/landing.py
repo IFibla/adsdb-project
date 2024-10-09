@@ -13,13 +13,11 @@ class Landing(Layer):
     structure for retrieving data from a datasource in a landing zone context.
 
     Attributes:
-        m_datasource (Datasource): An instance of Datasource representing the data source
-        associated with this landing layer.
+        m_source (Datasource | Layer | list[Layer]): An instance of Datasource, another Layer instance,
+        or a list of Layer instances that this landing layer interacts with. This attribute is inherited from the Layer
+        base class.
 
     Methods:
-        __init__(i_datasource: Datasource):
-            Initializes the Landing instance with the specified datasource.
-
         get() -> DataFrame:
             Abstract method to retrieve data from the landing layer and return it as a pandas DataFrame.
             Must be implemented by subclasses.
@@ -27,17 +25,6 @@ class Landing(Layer):
     Raises:
         NotImplementedError: If the `get` method is not implemented in a derived class.
     """
-
-    @abstractmethod
-    def __init__(self, i_datasource: Datasource):
-        """
-        Initializes the Landing instance.
-
-        Args:
-            i_datasource (Datasource): An instance of Datasource that this landing layer will use
-            to retrieve data.
-        """
-        pass
 
     @abstractmethod
     def get(self) -> DataFrame:

@@ -27,7 +27,6 @@ class Layer(ABC):
         NotImplementedError: If the `get` method is not implemented in a derived class.
     """
 
-    @abstractmethod
     def __init__(self, i_source: Datasource | Self | [Self]):
         """
         Initializes the Layer instance.
@@ -37,7 +36,7 @@ class Layer(ABC):
             that this layer will use for data operations.
 
         """
-        pass
+        self.m_source = i_source
 
     @abstractmethod
     def get(self) -> DataFrame:
