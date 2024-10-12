@@ -1,3 +1,3 @@
-from datasources.csv import CSVDatasource
+from .datasources.csv import CSVDatasource
 
 __all__ = ["CSVDatasource"]

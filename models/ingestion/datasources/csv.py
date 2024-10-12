@@ -30,6 +30,9 @@ class CSVDatasource(Datasource):
             The file path to the CSV file.
         """
         self.m_filepath = i_filepath
+        self.m_separator = i_separator
+        self.m_delimiter = i_delimiter
+        self.m_header = i_header
 
     def get(self) -> bytes:
         """
