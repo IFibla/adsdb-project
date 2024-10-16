@@ -25,7 +25,9 @@ class SafetyApiLanding(Landing):
         # Function to retrieve data for a specific vehicle ID
         def fetch_vehicle_data(vehicle_id: int) -> dict:
             try:
-                response = requests.get(f"{self.api_url}/{vehicle_id}", headers=self.headers)
+                response = requests.get(
+                    f"{self.api_url}/{vehicle_id}", headers=self.headers
+                )
                 response.raise_for_status()
                 return response.json()
             except requests.exceptions.RequestException as e:
@@ -35,8 +37,10 @@ class SafetyApiLanding(Landing):
         # Use ThreadPoolExecutor to make requests in parallel
         all_results = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-            futures = {executor.submit(fetch_vehicle_data, vehicle_id): vehicle_id for vehicle_id in
-                       range(self.min_vehicle_id, self.max_vehicle_id + 1)}
+            futures = {
+                executor.submit(fetch_vehicle_data, vehicle_id): vehicle_id
+                for vehicle_id in range(self.min_vehicle_id, self.max_vehicle_id + 1)
+            }
             for future in concurrent.futures.as_completed(futures):
                 all_results.append(future.result())
 
