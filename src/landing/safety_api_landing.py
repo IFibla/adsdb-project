@@ -2,8 +2,6 @@ import concurrent.futures
 
 import requests
 
-import pandas as pd
-
 from models.storage.layers.landing import Landing
 
 
