@@ -1,7 +1,6 @@
-from models.ingestion.datasource import Datasource
 from abc import ABC, abstractmethod
+
 from pandas import DataFrame
-from typing import Self
 
 
 class Layer(ABC):
@@ -26,17 +25,6 @@ class Layer(ABC):
     Raises:
         NotImplementedError: If the `get` method is not implemented in a derived class.
     """
-
-    def __init__(self, i_source: Datasource | Self | [Self]):
-        """
-        Initializes the Layer instance.
-
-        Args:
-            i_source (Datasource | Self | [Self]): An instance of Datasource, another Layer instance, or a list of Layer instances
-            that this layer will use for data operations.
-
-        """
-        self.m_source = i_source
 
     @abstractmethod
     def get(self) -> DataFrame:

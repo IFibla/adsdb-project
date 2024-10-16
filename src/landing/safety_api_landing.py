@@ -1,3 +1,5 @@
+import concurrent.futures
+
 import requests
 
 import pandas as pd
@@ -12,6 +14,7 @@ class SafetyApiLanding(Landing):
     The SafetyApiLanding class is specifically designed to retrieve data from a safety-related API
     and return it in the form of JSON data.
     """
+
     def __init__(self, min_vehicle_id: int, max_vehicle_id: int):
         self.api_url = "https://api.nhtsa.gov/SafetyRatings/VehicleId"
         self.headers = {
@@ -34,7 +37,8 @@ class SafetyApiLanding(Landing):
         # Use ThreadPoolExecutor to make requests in parallel
         all_results = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
-            futures = {executor.submit(fetch_vehicle_data, vehicle_id): vehicle_id for vehicle_id in range(self.min_vehicle_id, self.max_vehicle_id + 1)}
+            futures = {executor.submit(fetch_vehicle_data, vehicle_id): vehicle_id for vehicle_id in
+                       range(self.min_vehicle_id, self.max_vehicle_id + 1)}
             for future in concurrent.futures.as_completed(futures):
                 all_results.append(future.result())
 
