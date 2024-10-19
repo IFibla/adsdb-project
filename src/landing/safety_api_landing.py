@@ -21,28 +21,25 @@ class SafetyApiLanding(Landing):
         self.min_vehicle_id = min_vehicle_id
         self.max_vehicle_id = max_vehicle_id
 
-    def get(self) -> list:
-        # Function to retrieve data for a specific vehicle ID
-        def fetch_vehicle_data(vehicle_id: int) -> dict:
-            try:
-                response = requests.get(
-                    f"{self.api_url}/{vehicle_id}", headers=self.headers
-                )
-                response.raise_for_status()
-                return response.json()
-            except requests.exceptions.RequestException as e:
-                print(f"Failed to retrieve data for vehicle ID {vehicle_id}: {e}")
-                return {}
+    def _fetch_vehicle_data(self, vehicle_id: int) -> dict:
+        try:
+            response = requests.get(
+                f"{self.api_url}/{vehicle_id}", headers=self.headers
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Failed to retrieve data for vehicle ID {vehicle_id}: {e}")
+            return {}
 
-        # Use ThreadPoolExecutor to make requests in parallel
+    def get(self) -> list:
         all_results = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
             futures = {
-                executor.submit(fetch_vehicle_data, vehicle_id): vehicle_id
+                executor.submit(self._fetch_vehicle_data, vehicle_id): vehicle_id
                 for vehicle_id in range(self.min_vehicle_id, self.max_vehicle_id + 1)
             }
             for future in concurrent.futures.as_completed(futures):
                 all_results.append(future.result())
 
-        # Return the raw JSON results
         return all_results

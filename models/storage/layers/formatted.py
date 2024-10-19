@@ -26,7 +26,7 @@ class Formatted(Layer):
             Retrieves and formats data from the source layer.
     """
 
-    def __init__(self, i_landing: Landing):
+    def __init__(self, i_landing: type[Landing]):
         self.m_landing = i_landing
 
     @abstractmethod
