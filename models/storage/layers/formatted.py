@@ -5,6 +5,7 @@ from pandas import DataFrame
 
 from models.storage.layer import Layer
 from models.storage.layers.landing import Landing
+from src.helpers.db_connector import DBConnector
 
 
 class Formatted(Layer):
@@ -26,8 +27,9 @@ class Formatted(Layer):
             Retrieves and formats data from the source layer.
     """
 
-    def __init__(self, i_landing: Landing):
+    def __init__(self, i_landing: Landing, i_db_connector: DBConnector):
         self.m_landing = i_landing
+        self.m_db_connector = i_db_connector
 
     @abstractmethod
     def format_data(self, data: Any) -> DataFrame:
@@ -36,7 +38,7 @@ class Formatted(Layer):
 
         This method must be implemented by subclasses to provide the specific transformation logic
         needed to standardize the data format.
-
+ç
         Args:
             data (Any): The raw data retrieved from the source layer, which could be in various formats
             (e.g., dict, bytearray, etc.).
