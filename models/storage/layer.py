@@ -10,14 +10,7 @@ class Layer(ABC):
     This class serves as a blueprint for creating specific types of layers that interact with data sources.
     It defines the structure and behavior that all derived layers must implement.
 
-    Attributes:
-        m_source (Datasource | Self | [Self]): An instance of a Datasource, another Layer instance, or a list of Layer instances
-        that this layer interacts with.
-
     Methods:
-        __init__(i_source: Datasource | Self | [Self]):
-            Initializes the layer with a specified data source or layer.
-
         get() -> DataFrame:
             Abstract method to retrieve data from the layer and return it as a pandas DataFrame.
             Must be implemented by subclasses.
