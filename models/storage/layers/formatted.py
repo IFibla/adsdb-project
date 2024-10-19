@@ -34,17 +34,17 @@ class Formatted(Layer):
     @abstractmethod
     def format_data(self, data: Any) -> DataFrame:
         """
-        Abstract method to transform raw data from its original format into a standardized pandas DataFrame.
+                Abstract method to transform raw data from its original format into a standardized pandas DataFrame.
 
-        This method must be implemented by subclasses to provide the specific transformation logic
-        needed to standardize the data format.
-ç
-        Args:
-            data (Any): The raw data retrieved from the source layer, which could be in various formats
-            (e.g., dict, bytearray, etc.).
+                This method must be implemented by subclasses to provide the specific transformation logic
+                needed to standardize the data format.
+        ç
+                Args:
+                    data (Any): The raw data retrieved from the source layer, which could be in various formats
+                    (e.g., dict, bytearray, etc.).
 
-        Returns:
-            DataFrame: The standardized data as a pandas DataFrame.
+                Returns:
+                    DataFrame: The standardized data as a pandas DataFrame.
         """
         pass
 
