@@ -16,4 +16,6 @@ class SafetyApiFormatted(Formatted):
     """
 
     def format_data(self, data: dict) -> pd.DataFrame:
-        return pd.DataFrame(data)
+        df = pd.DataFrame([result.dict() for item in data for result in item.results])
+        self.m_db_connector.insert_data("safety_api_results", df)
+        return df
