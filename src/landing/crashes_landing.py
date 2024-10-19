@@ -4,6 +4,7 @@ import shutil
 import os
 import re
 
+
 class CrashesLanding(Landing):
     """
     Concrete class representing a safety data landing layer in a data ingestion pipeline.
@@ -16,7 +17,12 @@ class CrashesLanding(Landing):
         m_persistent_landing_path (str): Path to the persistent landing zone where processed files are stored.
     """
 
-    def __init__(self, i_temporal_landing_path: str, i_persistent_landing_path: str, i_filename: str):
+    def __init__(
+        self,
+        i_temporal_landing_path: str,
+        i_persistent_landing_path: str,
+        i_filename: str,
+    ):
         """
         Initializes the CrashesLanding instance with specified paths for temporal and persistent landing zones.
 
@@ -44,33 +50,41 @@ class CrashesLanding(Landing):
             None: The method saves the CSV file and its metadata in the persistent landing zone.
         """
         if not os.path.exists(self.m_temporal_landing_path + self.filename):
-            raise FileNotFoundError(f"{self.m_temporal_landing_path} + {self.filename} was not found.")
+            raise FileNotFoundError(
+                f"{self.m_temporal_landing_path} + {self.filename} was not found."
+            )
 
-        dates = re.findall(r'\d{8}', self.filename)
+        dates = re.findall(r"\d{8}", self.filename)
 
         if len(dates) != 1:
-            raise ValueError(f'{self.filename} has 0 or >1 dates.')
+            raise ValueError(f"{self.filename} has 0 or >1 dates.")
 
         try:
-            date_obj = datetime.strptime(dates[0], '%Y%m%d')
+            date_obj = datetime.strptime(dates[0], "%Y%m%d")
         except ValueError as e:
             print(f"Error parsing date '{dates[0]}': {e}")
             return
 
-        persistent_folder = date_obj.strftime("%Y%m%d") + '/'
-        os.makedirs(f'{self.m_persistent_landing_path}{persistent_folder}', exist_ok=False)
-        shutil.copyfile(self.m_temporal_landing_path + self.filename,
-                        self.m_persistent_landing_path + persistent_folder + "Crashes.csv")
+        persistent_folder = date_obj.strftime("%Y%m%d") + "/"
+        os.makedirs(
+            f"{self.m_persistent_landing_path}{persistent_folder}", exist_ok=False
+        )
+        shutil.copyfile(
+            self.m_temporal_landing_path + self.filename,
+            self.m_persistent_landing_path + persistent_folder + "Crashes.csv",
+        )
 
         metadata = {
-            'temporal_landing_path': f'{self.m_temporal_landing_path}{self.filename}',
-            'persistent_landing_path': f'{self.m_persistent_landing_path}{persistent_folder}',
-            'data_provider': "Police Department (NYPD)",
-            'dataset_owner': 'NYC OpenData',
-            'data_collection': 'Motor Vehicle Collisions',
-            'agency': 'Police Department (NYPD)',
-            'update_frequency': 'Daily',
+            "temporal_landing_path": f"{self.m_temporal_landing_path}{self.filename}",
+            "persistent_landing_path": f"{self.m_persistent_landing_path}{persistent_folder}",
+            "data_provider": "Police Department (NYPD)",
+            "dataset_owner": "NYC OpenData",
+            "data_collection": "Motor Vehicle Collisions",
+            "agency": "Police Department (NYPD)",
+            "update_frequency": "Daily",
         }
 
-        with open(self.m_persistent_landing_path + persistent_folder + "Crashes.metadata", "w") as f:
+        with open(
+            self.m_persistent_landing_path + persistent_folder + "Crashes.metadata", "w"
+        ) as f:
             f.write(str(metadata))
