@@ -1,7 +1,6 @@
-from models.ingestion.datasource import Datasource
 from abc import ABC, abstractmethod
+
 from pandas import DataFrame
-from typing import Self
 
 
 class Layer(ABC):
@@ -12,9 +11,6 @@ class Layer(ABC):
     It defines the structure and behavior that all derived layers must implement.
 
     Methods:
-        __init__(i_source: Datasource | Self | [Self]):
-            Initializes the layer with a specified data source or layer.
-
         get() -> DataFrame:
             Abstract method to retrieve data from the layer and return it as a pandas DataFrame.
             Must be implemented by subclasses.
