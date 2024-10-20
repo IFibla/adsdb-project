@@ -1,5 +1,6 @@
 import pandas as pd
 
+from models.data_models.safety_api_response import SafetyApiResponse
 from models.storage.layers.formatted import Formatted
 
 
@@ -16,6 +17,8 @@ class SafetyApiFormatted(Formatted):
     """
 
     def format_data(self, data: dict) -> pd.DataFrame:
-        df = pd.DataFrame([result.dict() for item in data for result in item.results])
+        df = pd.DataFrame(
+            [result.dict() for d in data for result in SafetyApiResponse(**d).results]
+        )
         self.m_db_connector.insert_data("safety_api_results", df)
         return df
