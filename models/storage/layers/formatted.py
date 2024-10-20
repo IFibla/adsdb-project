@@ -38,7 +38,7 @@ class Formatted(Layer):
 
                 This method must be implemented by subclasses to provide the specific transformation logic
                 needed to standardize the data format.
-        ç
+
                 Args:
                     data (Any): The raw data retrieved from the source layer, which could be in various formats
                     (e.g., dict, bytearray, etc.).

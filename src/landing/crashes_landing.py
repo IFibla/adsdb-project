@@ -1,6 +1,10 @@
+import pandas as pd
+from pandas import DataFrame
+
 from models.storage.layers.landing import Landing
 from datetime import datetime
 import shutil
+import json
 import os
 import re
 
@@ -33,8 +37,25 @@ class CrashesLanding(Landing):
         self.m_temporal_landing_path = i_temporal_landing_path
         self.m_persistent_landing_path = i_persistent_landing_path
         self.m_filename = i_filename
+        if not os.path.exists(self.m_temporal_landing_path + self.m_filename):
+            raise FileNotFoundError(
+                f"{self.m_temporal_landing_path}{self.m_filename} was not found."
+            )
 
-    def get(self):
+        dates = re.findall(r"\d{8}", self.m_filename)
+
+        if len(dates) != 1:
+            raise ValueError(f"{self.m_filename} has 0 or >1 dates.")
+
+        try:
+            date_obj = datetime.strptime(dates[0], "%Y%m%d")
+        except ValueError as e:
+            print(f"Error parsing date '{dates[0]}': {e}")
+            return
+
+        self.m_persistent_folder = date_obj.strftime("%Y%m%d") + "/"
+
+    def execute(self):
         """
         Retrieves and processes a CSV file from the temporary landing zone, then saves it in the persistent landing zone.
 
@@ -49,42 +70,34 @@ class CrashesLanding(Landing):
         Returns:
             None: The method saves the CSV file and its metadata in the persistent landing zone.
         """
-        if not os.path.exists(self.m_temporal_landing_path + self.filename):
-            raise FileNotFoundError(
-                f"{self.m_temporal_landing_path} + {self.filename} was not found."
-            )
-
-        dates = re.findall(r"\d{8}", self.filename)
-
-        if len(dates) != 1:
-            raise ValueError(f"{self.filename} has 0 or >1 dates.")
-
-        try:
-            date_obj = datetime.strptime(dates[0], "%Y%m%d")
-        except ValueError as e:
-            print(f"Error parsing date '{dates[0]}': {e}")
-            return
-
-        persistent_folder = date_obj.strftime("%Y%m%d") + "/"
         os.makedirs(
-            f"{self.m_persistent_landing_path}{persistent_folder}", exist_ok=False
+            f"{self.m_persistent_landing_path}{self.m_persistent_folder}", exist_ok=False
         )
         shutil.copyfile(
-            self.m_temporal_landing_path + self.filename,
-            self.m_persistent_landing_path + persistent_folder + "Crashes.csv",
+            self.m_temporal_landing_path + self.m_filename,
+            self.m_persistent_landing_path + self.m_persistent_folder + "Crashes.csv",
         )
 
         metadata = {
-            "temporal_landing_path": f"{self.m_temporal_landing_path}{self.filename}",
-            "persistent_landing_path": f"{self.m_persistent_landing_path}{persistent_folder}",
+            "temporal_landing_path": f"{self.m_temporal_landing_path}{self.m_filename}",
+            "persistent_landing_path": f"{self.m_persistent_landing_path}{self.m_persistent_folder}",
             "data_provider": "Police Department (NYPD)",
             "dataset_owner": "NYC OpenData",
             "data_collection": "Motor Vehicle Collisions",
             "agency": "Police Department (NYPD)",
             "update_frequency": "Daily",
+            "date": date_obj.strftime("%Y%m%d")
         }
 
         with open(
-            self.m_persistent_landing_path + persistent_folder + "Crashes.metadata", "w"
+            self.m_persistent_landing_path + self.m_persistent_folder + "Crashes.metadata", "w"
         ) as f:
-            f.write(str(metadata))
+            f.write(json.dumps(metadata))
+
+    def get(self) -> DataFrame:
+        df = pd.read_csv(f'{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.csv')
+        with open(f'{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.metadata', 'r') as file:
+            metadata = json.loads(file.read())
+        for key, value in metadata.items():
+            df[f'metadata_{key}'] = value
+        return df
