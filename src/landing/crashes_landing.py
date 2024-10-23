@@ -48,12 +48,12 @@ class CrashesLanding(Landing):
             raise ValueError(f"{self.m_filename} has 0 or >1 dates.")
 
         try:
-            date_obj = datetime.strptime(dates[0], "%Y%m%d")
+            self.m_date_obj = datetime.strptime(dates[0], "%Y%m%d")
         except ValueError as e:
             print(f"Error parsing date '{dates[0]}': {e}")
             return
 
-        self.m_persistent_folder = date_obj.strftime("%Y%m%d") + "/"
+        self.m_persistent_folder = self.m_date_obj.strftime("%Y%m%d") + "/"
 
     def execute(self):
         """
@@ -86,7 +86,7 @@ class CrashesLanding(Landing):
             "data_collection": "Motor Vehicle Collisions",
             "agency": "Police Department (NYPD)",
             "update_frequency": "Daily",
-            "date": date_obj.strftime("%Y%m%d")
+            "date": self.m_date_obj.strftime("%Y%m%d")
         }
 
         with open(
