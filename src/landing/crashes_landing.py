@@ -71,7 +71,8 @@ class CrashesLanding(Landing):
             None: The method saves the CSV file and its metadata in the persistent landing zone.
         """
         os.makedirs(
-            f"{self.m_persistent_landing_path}{self.m_persistent_folder}", exist_ok=False
+            f"{self.m_persistent_landing_path}{self.m_persistent_folder}",
+            exist_ok=False,
         )
         shutil.copyfile(
             self.m_temporal_landing_path + self.m_filename,
@@ -86,18 +87,26 @@ class CrashesLanding(Landing):
             "data_collection": "Motor Vehicle Collisions",
             "agency": "Police Department (NYPD)",
             "update_frequency": "Daily",
-            "date": self.m_date_obj.strftime("%Y%m%d")
+            "date": self.m_date_obj.strftime("%Y%m%d"),
         }
 
         with open(
-            self.m_persistent_landing_path + self.m_persistent_folder + "Crashes.metadata", "w"
+            self.m_persistent_landing_path
+            + self.m_persistent_folder
+            + "Crashes.metadata",
+            "w",
         ) as f:
             f.write(json.dumps(metadata))
 
     def get(self) -> DataFrame:
-        df = pd.read_csv(f'{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.csv')
-        with open(f'{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.metadata', 'r') as file:
+        df = pd.read_csv(
+            f"{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.csv"
+        )
+        with open(
+            f"{self.m_persistent_landing_path}{self.m_persistent_folder}/Crashes.metadata",
+            "r",
+        ) as file:
             metadata = json.loads(file.read())
         for key, value in metadata.items():
-            df[f'metadata_{key}'] = value
+            df[f"metadata_{key}"] = value
         return df
