@@ -47,12 +47,6 @@ class DBConnector:
         if not isinstance(data, pd.DataFrame):
             raise TypeError("Data must be a pandas DataFrame")
         try:
-            schema_name, table_name_only = (
-                table_name.split(".") if "." in table_name else ("main", table_name)
-            )
-
-            self.connection.execute(f"CREATE SCHEMA IF NOT EXISTS {schema_name}")
-
             self.connection.register("data", data)
             self.connection.execute(
                 f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data"
@@ -62,18 +56,18 @@ class DBConnector:
 
     def exists_table(self, table_name: str) -> bool:
         try:
-            query = "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = ? AND table_schema = 'main'"
-            result = self.connection.execute(query, (table_name,)).fetchone()
-            return result[0] > 0
+            query = f"SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{table_name}'"
+            result = self.connection.execute(query).fetchone()[0]
+            return result > 0
         except Exception as e:
             print(f"Error checking if table exists: {e}")
             return False
 
     def get_tables(self) -> list[str]:
         try:
-            query = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'main'"
-            result = self.connection.execute(query).fetchall()
-            return result
+            query = f"SELECT table_name FROM information_schema.tables"
+            self.connection.execute(query)
+            return self.connection.fetchall()
         except Exception as e:
             print(f"Error returning all tables: {e}")
             return []
