@@ -16,14 +16,14 @@ class JSONFormatted(Formatted):
 
     def _read_file(self, path: str) -> pd.DataFrame:
         try:
-            with open(f"{self.persistent_folder}{os.path.sep}{path}.json", 'r') as f:
+            with open(f"{self.persistent_folder}{os.path.sep}{path}.json", "r") as f:
                 data = json.load(f)
 
-            api_response_list = data.get('apiResponse', [])
+            api_response_list = data.get("apiResponse", [])
             df_list = []
 
             for response in api_response_list:
-                results = response.get('Results', [])
+                results = response.get("Results", [])
                 if results:
                     df = pd.json_normalize(results)
                     df_list.append(df)
