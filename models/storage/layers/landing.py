@@ -43,3 +43,10 @@ def main(temporal_folder, persistent_folder):
                 os.path.join(temporal_folder, f),
                 os.path.join(destination_folder, new_filename),
             )
+
+
+if __name__ == "__main__":
+    main(
+        temporal_folder=r"C:\Users\ferra\PycharmProjects\adsdb-project\data\landing\temporal",
+        persistent_folder=r"C:\Users\ferra\PycharmProjects\adsdb-project\data\landing\persistent",
+    )
