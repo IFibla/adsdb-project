@@ -15,7 +15,9 @@ class Formatted(Layer):
         file_paths = []
         for root, _, files in os.walk(self.persistent_folder):
             for file in files:
-                file_paths.append(os.path.join(root, file))
+                absolute_path = os.path.join(root, file)
+                relative_path = os.path.relpath(absolute_path, self.persistent_folder)
+                file_paths.append(relative_path)
         return file_paths
 
     @abstractmethod
@@ -24,7 +26,8 @@ class Formatted(Layer):
 
     def execute(self):
         for f in self.listed_files:
-            formatted_table_name = f.replace("/", "_")
+            formatted_table_name = f.replace(os.path.sep, "_")
+
             if not self.formatted_db_connector.exists_table(formatted_table_name):
                 df = self._read_file(f)
                 self.formatted_db_connector.insert_data(formatted_table_name, df)

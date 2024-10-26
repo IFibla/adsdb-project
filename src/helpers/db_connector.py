@@ -57,8 +57,8 @@ class DBConnector:
     def exists_table(self, table_name: str) -> bool:
         try:
             query = f"SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{table_name}'"
-            self.connection.execute(query)
-            return self.connection.fetchall()
+            result = self.connection.execute(query).fetchone()[0]
+            return result > 0
         except Exception as e:
             print(f"Error checking if table exists: {e}")
             return False
@@ -67,7 +67,7 @@ class DBConnector:
         try:
             query = f"SELECT table_name FROM information_schema.tables"
             self.connection.execute(query)
-            return self.connection.fetchone()
+            return self.connection.fetchall()
         except Exception as e:
             print(f"Error returning all tables: {e}")
             return []
