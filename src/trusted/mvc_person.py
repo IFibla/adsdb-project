@@ -12,7 +12,7 @@ class MVCPerson(Trusted):
     def _transform_column_names_to_snake_case(self, df: pd.DataFrame) -> pd.DataFrame:
         pass
 
-    def join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
+    def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
         pass
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:

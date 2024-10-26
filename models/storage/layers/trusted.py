@@ -2,7 +2,6 @@ from src.helpers.db_connector import DBConnector
 from models.storage.layer import Layer
 from abc import abstractmethod
 import pandas as pd
-import re
 
 
 class Trusted(Layer):
@@ -22,12 +21,10 @@ class Trusted(Layer):
         return self.formatted_db_connector.get_tables()
 
     def _transform_column_names_to_snake_case(self, df: pd.DataFrame) -> pd.DataFrame:
-        df.columns = [
-            re.sub(r"(?<!^)(?=[A-Z])", "_", col).lower() for col in df.columns
-        ]
+        df.columns = [col.replace(" ", "_").lower() for col in df.columns]
         return df
 
-    def join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
+    def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
         dfs = []
         for table_name in tables_names:
             dfs.append(
@@ -57,7 +54,8 @@ class Trusted(Layer):
 
     def execute(self):
         tables_names = self._list_tables()
-        df = self.join_all_versions(tables_names)
+        df = self._join_all_versions(tables_names)
+        df = self._transform_column_names_to_snake_case(df)
         df = self._drop_insignificant_columns(df)
         df = self._clean_duplicates(df)
         df = self._correct_misspellings(df)
