@@ -1,43 +1,50 @@
-from abc import abstractmethod
-
-from pandas import DataFrame
-
-from models.storage.layer import Layer
+import os
+import re
+import shutil
 
 
-class Landing(Layer):
-    """
-    Abstract class representing a landing layer in a data ingestion pipeline.
+def classify_file(filename, patterns):
+    for pattern, destination in patterns:
+        match = re.match(pattern, filename)
+        if match:
+            date = match.group(1)
+            new_filename = date + os.path.splitext(filename)[1]
+            return new_filename, destination
+    return None, None
 
-    The Landing class extends the Layer class, specifically designed for handling
-    data sourced from various data ingestion sources. It defines the necessary
-    structure for retrieving data from a datasource in a landing zone context.
 
-    Attributes:
-        m_source (Datasource | Layer | list[Layer]): An instance of Datasource, another Layer instance,
-        or a list of Layer instances that this landing layer interacts with. This attribute is inherited from the Layer
-        base class.
+def main(temporal_folder, persistent_folder):
+    patterns = [
+        (
+            r"^Motor_Vehicle_Collisions_-_Crashes_(\d{8}).csv$",
+            os.path.join(persistent_folder, "motor_vehicle_collisions", "crashes"),
+        ),
+        (
+            r"^Motor_Vehicle_Collisions_-_Persons_(\d{8}).csv$",
+            os.path.join(persistent_folder, "motor_vehicle_collisions", "person"),
+        ),
+        (
+            r"^Motor_Vehicle_Collisions_-_Vehicles_(\d{8}).csv$",
+            os.path.join(persistent_folder, "motor_vehicle_collisions", "vehicles"),
+        ),
+        (
+            r"^NHTSA_-_Safety_Rating_(\d{8}).json$",
+            os.path.join(persistent_folder, "nhtsa", "safety_rating"),
+        ),
+    ]
 
-    Methods:
-        get() -> DataFrame:
-            Abstract method to retrieve data from the landing layer and return it as a pandas DataFrame.
-            Must be implemented by subclasses.
+    for f in os.listdir(temporal_folder):
+        new_filename, destination_folder = classify_file(f, patterns)
 
-    Raises:
-        NotImplementedError: If the `get` method is not implemented in a derived class.
-    """
+        if new_filename and destination_folder:
+            os.makedirs(destination_folder, exist_ok=True)
 
-    @abstractmethod
-    def get(self) -> DataFrame:
-        """
-        Abstract method to retrieve data from the landing layer.
+            shutil.move(
+                os.path.join(temporal_folder, f),
+                os.path.join(destination_folder, new_filename),
+            )
 
-        This method must be implemented in subclasses to return data as a pandas DataFrame.
 
-        Returns:
-            DataFrame: The data retrieved from the landing layer.
-
-        Raises:
-            NotImplementedError: If this method is not overridden in a derived class.
-        """
-        pass
+if __name__ == "__main__":
+    main("/mnt/c/Users/ferran.gonzalez.gar/Documents/Repos/adsdb-project/data/landing/temporal/",
+         "/mnt/c/Users/ferran.gonzalez.gar/Documents/Repos/adsdb-project/data/landing/persistent/")

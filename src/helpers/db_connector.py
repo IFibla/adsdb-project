@@ -54,6 +54,15 @@ class DBConnector:
         except Exception as e:
             print(f"Error inserting data: {e}")
 
+    def exists_table(self, table_name: str) -> bool:
+        try:
+            query = f"SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{table_name}'"
+            self.connection.execute(query)
+            return self.connection.fetchone()[0] > 0
+        except Exception as e:
+            print(f"Error checking if table exists: {e}")
+            return False
+
     def close_connection(self) -> None:
         """
         Closes the connection to the DuckDB database.

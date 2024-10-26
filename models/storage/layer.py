@@ -20,7 +20,7 @@ class Layer(ABC):
     """
 
     @abstractmethod
-    def get(self) -> DataFrame:
+    def execute(self):
         """
         Abstract method to retrieve data from the layer.
 
