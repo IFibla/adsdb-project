@@ -72,6 +72,24 @@ class DBConnector:
             print(f"Error returning all tables: {e}")
             return []
 
+    def get_table_as_dataframe(self, table_name: str) -> pd.DataFrame:
+        """
+        Retrieves the content of the specified table as a pandas DataFrame.
+
+        Args:
+            table_name (str): The name of the table to retrieve.
+
+        Returns:
+            pd.DataFrame: The table content as a DataFrame.
+        """
+        try:
+            query = f"SELECT * FROM {table_name}"
+            df = self.connection.execute(query).fetchdf()
+            return df
+        except Exception as e:
+            print(f"Error retrieving table '{table_name}': {e}")
+            return pd.DataFrame()
+
     def close_connection(self) -> None:
         """
         Closes the connection to the DuckDB database.
