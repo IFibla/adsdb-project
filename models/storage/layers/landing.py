@@ -1,6 +1,6 @@
+import shutil
 import os
 import re
-import shutil
 
 
 def classify_file(filename, patterns):
@@ -43,8 +43,3 @@ def main(temporal_folder, persistent_folder):
                 os.path.join(temporal_folder, f),
                 os.path.join(destination_folder, new_filename),
             )
-
-
-if __name__ == "__main__":
-    main("/mnt/c/Users/ferran.gonzalez.gar/Documents/Repos/adsdb-project/data/landing/temporal/",
-         "/mnt/c/Users/ferran.gonzalez.gar/Documents/Repos/adsdb-project/data/landing/persistent/")
