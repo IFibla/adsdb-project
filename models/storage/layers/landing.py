@@ -20,7 +20,7 @@ def main(temporal_folder, persistent_folder):
             os.path.join(persistent_folder, "motor_vehicle_collisions", "crashes"),
         ),
         (
-            r"^Motor_Vehicle_Collisions_-_Persons_(\d{8}).csv$",
+            r"^Motor_Vehicle_Collisions_-_Person_(\d{8}).csv$",
             os.path.join(persistent_folder, "motor_vehicle_collisions", "person"),
         ),
         (
