@@ -9,7 +9,11 @@ class MVCCrash(Trusted):
         return "mvc_crash"
 
     def _list_tables(self) -> list[str]:
-        return list(filter(lambda x: "motorvehiclecollisionscrashes" in x, super()._list_tables()))
+        return list(
+            filter(
+                lambda x: "motorvehiclecollisionscrashes" in x, super()._list_tables()
+            )
+        )
 
     def _drop_insignificant_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.drop(

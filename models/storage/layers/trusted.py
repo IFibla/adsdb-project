@@ -1,6 +1,7 @@
 from src.helpers.db_connector import DBConnector
 from models.storage.layer import Layer
 from abc import abstractmethod
+
 import pandas as pd
 
 
@@ -27,8 +28,7 @@ class Trusted(Layer):
     def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
         dfs = []
         for table_name in tables_names:
-            dfs.append(
-                self.formatted_db_connector.get_table_as_dataframe(table_name)
+            dfs.append(self.formatted_db_connector.get_table_as_dataframe(table_name))
         return pd.concat(dfs, axis=0, ignore_index=True)
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
