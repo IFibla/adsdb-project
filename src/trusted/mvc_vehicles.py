@@ -7,10 +7,7 @@ class MVCVehicles(Trusted):
         return "mvc_vehicles"
 
     def _list_tables(self) -> list[str]:
-        pass
-
-    def _transform_column_names_to_snake_case(self, df: pd.DataFrame) -> pd.DataFrame:
-        pass
+        return list(filter(lambda x: "motorvehiclecollisionsvehicles" in x, super()._list_tables()))
 
     def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
         pass

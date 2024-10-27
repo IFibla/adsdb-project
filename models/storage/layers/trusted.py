@@ -1,9 +1,8 @@
+from src.helpers.db_connector import DBConnector
+from models.storage.layer import Layer
 from abc import abstractmethod
 
 import pandas as pd
-
-from models.storage.layer import Layer
-from src.helpers.db_connector import DBConnector
 
 
 class Trusted(Layer):

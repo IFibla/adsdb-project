@@ -67,7 +67,7 @@ class DBConnector:
         try:
             query = f"SELECT table_name FROM information_schema.tables"
             self.connection.execute(query)
-            return self.connection.fetchall()
+            return list(map(lambda x: x[0], self.connection.fetchall()))
         except Exception as e:
             print(f"Error returning all tables: {e}")
             return []
