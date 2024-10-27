@@ -16,9 +16,6 @@ class MVCVehicles(Trusted):
             )
         )
 
-    def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
-        pass
-
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.drop_duplicates("collision_id")
         return df.reset_index()
@@ -394,9 +391,6 @@ class MVCVehicles(Trusted):
         df = transform_vehicle_damage_to_onehot(df)
         df = self._transform_column_names_to_snake_case(df)
         df = transform_datetime_to_utc(df)
-        return df
-
-    def get_profiling(self, df: pd.DataFrame) -> dict:
         return df
 
     def _drop_insignificant_columns(self, df: pd.DataFrame) -> pd.DataFrame:

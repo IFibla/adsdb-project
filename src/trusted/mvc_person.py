@@ -66,9 +66,6 @@ class MVCPerson(Trusted):
 
         return df
 
-    def get_profiling(self, df: pd.DataFrame) -> pd.DataFrame:
-        return df
-
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
         exclude_columns = ["unique_id", "collision_id", "person_id", "vehicle_id"]
         impute_columns = [col for col in df.columns if col not in exclude_columns]
