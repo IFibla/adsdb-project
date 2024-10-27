@@ -324,8 +324,12 @@ class MVCVehicles(Trusted):
         vehicle_type_choices_clean = [v.lower() for v in vehicle_type_choices]
         vehicle_make_choices_clean = [v.lower() for v in vehicle_make_choices]
 
-        df["vehicle_type_clean"] = df["vehicle_type"].astype(str).str.lower().str.strip()
-        df["vehicle_make_clean"] = df["vehicle_make"].astype(str).str.lower().str.strip()
+        df["vehicle_type_clean"] = (
+            df["vehicle_type"].astype(str).str.lower().str.strip()
+        )
+        df["vehicle_make_clean"] = (
+            df["vehicle_make"].astype(str).str.lower().str.strip()
+        )
 
         def get_best_match(series, choices_clean, scorer=fuzz.WRatio, score_cutoff=80):
             matches = process.cdist(
@@ -382,7 +386,9 @@ class MVCVehicles(Trusted):
             return df.drop("vehicle_damage_combined", axis=1)
 
         def transform_datetime_to_utc(df: pd.DataFrame) -> pd.DataFrame:
-            df["crash_datetime"] = pd.to_datetime(df["crash_date"] + " " + df["crash_time"])
+            df["crash_datetime"] = pd.to_datetime(
+                df["crash_date"] + " " + df["crash_time"]
+            )
             return df.drop(["crash_date", "crash_time"], axis=1)
 
         df = transform_vehicle_damage_to_onehot(df)
@@ -403,7 +409,7 @@ class MVCVehicles(Trusted):
                 "contributing_factor_1",
                 "contributing_factor_2",
                 "travel_direction",
-                "vehicle_occupants"
+                "vehicle_occupants",
             ],
             axis=1,
         )
