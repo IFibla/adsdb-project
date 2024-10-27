@@ -58,8 +58,10 @@ class Trusted(Layer):
         df = self._handle_missing_values(df)
         self.trusted_db_connector.insert_data(self._get_trusted_table_name(), df)
 
-    def get_profiling(self, table_name: str, export_path: str):
-        df = self.formatted_db_connector.get_table_as_dataframe(table_name)
-        ProfileReport(df, title=f"Profile Report from {table_name}").to_file(
-            export_path, silent=True
+    def get_profiling(self, export_path: str):
+        df = self.formatted_db_connector.get_table_as_dataframe(
+            self._get_trusted_table_name()
         )
+        ProfileReport(
+            df, title=f"Profile Report from {self._get_trusted_table_name()}"
+        ).to_file(export_path, silent=True)
