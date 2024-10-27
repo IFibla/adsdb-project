@@ -1,6 +1,7 @@
 from models.storage.layers.formatted import Formatted
 import pandas as pd
 import re
+import os
 
 
 class CSVFormatted(Formatted):
@@ -9,7 +10,7 @@ class CSVFormatted(Formatted):
 
     def _read_file(self, path: str) -> pd.DataFrame:
         try:
-            return pd.read_csv(path)
+            return pd.read_csv(f"{self.persistent_folder}{os.path.sep}{path}")
         except Exception as e:
             print(f"Error reading file {path}: {e}")
             return pd.DataFrame()

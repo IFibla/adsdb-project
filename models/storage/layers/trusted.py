@@ -1,4 +1,5 @@
 from src.helpers.db_connector import DBConnector
+from ydata_profiling import ProfileReport
 from models.storage.layer import Layer
 from abc import abstractmethod
 
@@ -40,9 +41,6 @@ class Trusted(Layer):
     def _format_data(self, df: pd.DataFrame) -> pd.DataFrame:
         return df
 
-    def _profile_data(self, df: pd.DataFrame) -> dict:
-        return df
-
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
         return df
 
@@ -59,3 +57,9 @@ class Trusted(Layer):
         df = self._format_data(df)
         df = self._handle_missing_values(df)
         self.trusted_db_connector.insert_data(self._get_trusted_table_name(), df)
+
+    def get_profiling(self, table_name: str, export_path: str):
+        df = self.formatted_db_connector.get_table_as_dataframe(table_name)
+        ProfileReport(df, title=f"Profile Report from {table_name}").to_file(
+            export_path, silent=True
+        )

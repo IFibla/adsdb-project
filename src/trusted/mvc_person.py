@@ -24,7 +24,7 @@ class MVCPerson(Trusted):
     def _format_data(self, df: pd.DataFrame) -> pd.DataFrame:
         return df
 
-    def _profile_data(self, df: pd.DataFrame) -> dict:
+    def get_profiling(self, df: pd.DataFrame) -> dict:
         return df
 
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
