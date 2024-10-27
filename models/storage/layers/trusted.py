@@ -28,10 +28,7 @@ class Trusted(Layer):
         dfs = []
         for table_name in tables_names:
             dfs.append(
-                self.formatted_db_connector.execute_query(
-                    f"""SELECT * FROM {table_name}"""
-                )
-            )
+                self.formatted_db_connector.get_table_as_dataframe(table_name)
         return pd.concat(dfs, axis=0, ignore_index=True)
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
