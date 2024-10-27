@@ -4,7 +4,7 @@ from sklearn.impute import KNNImputer
 from models.storage.layers.trusted import Trusted
 
 
-class MVCPerson(Trusted):
+class MVCPersonTrusted(Trusted):
     def _get_trusted_table_name(self) -> str:
         return "mvc_person"
 
@@ -12,7 +12,7 @@ class MVCPerson(Trusted):
         return [
             t
             for t in super()._list_tables()
-            if t.startswith("motorvehiclecollisionsperson")
+            if t.startswith("motorvehiclecollisions_person")
         ]
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -24,7 +24,6 @@ class MVCPerson(Trusted):
         return df
 
     def _format_data(self, df: pd.DataFrame) -> pd.DataFrame:
-
         def one_hot_encode_and_format(df, column_name, prefix):
             encoded_df = pd.get_dummies(df[column_name], prefix=prefix)
 

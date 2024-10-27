@@ -27,3 +27,26 @@ class CSVSampler:
             print(f"Sample of {sample_size} rows saved to {output_file}")
 
         return sample_df
+
+    def sort_and_sample(
+        self, column_to_sort: str, sample_size: int = 200, output_file: str = None
+    ) -> pd.DataFrame:
+        sample_df = pd.read_csv(self.input_file)
+        sample_df.sort_values(column_to_sort, ascending=False, inplace=True)
+        sample_df = sample_df.iloc[0:sample_size]
+
+        if output_file:
+            sample_df.to_csv(output_file, index=False)
+            print(f"Sample of {sample_size} rows saved to {output_file}")
+
+        return sample_df
+
+    def year_split(self, date_columns: str, output_directory: str):
+        sample_df = pd.read_csv(self.input_file, parse_dates=[date_columns])
+
+        sample_df["Year"] = sample_df[date_columns].dt.year
+
+        for year, data in sample_df.groupby("Year"):
+            if output_directory:
+                data.to_csv(f"{output_directory}/{year}.csv", index=False)
+                print(f"Sample of {len(data)} rows saved to {output_directory}")

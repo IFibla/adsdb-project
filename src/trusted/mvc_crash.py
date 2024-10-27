@@ -4,16 +4,16 @@ import pandas as pd
 import numpy as np
 
 
-class MVCCrash(Trusted):
+class MVCCrashTrusted(Trusted):
     def _get_trusted_table_name(self) -> str:
         return "mvc_crash"
 
     def _list_tables(self) -> list[str]:
-        return list(
-            filter(
-                lambda x: "motorvehiclecollisionscrashes" in x, super()._list_tables()
-            )
-        )
+        return [
+            t
+            for t in super()._list_tables()
+            if t.startswith("motorvehiclecollisions_crashes")
+        ]
 
     def _drop_insignificant_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.drop(
@@ -50,12 +50,12 @@ class MVCCrash(Trusted):
             "Unspecified": np.nan,
         }
         for idx in range(1, 6):
-            for correction in misspelling_mapping:
+            for key, value in misspelling_mapping.items():
                 df[f"contributing_factor_vehicle_{idx}"] = df[
                     f"contributing_factor_vehicle_{idx}"
                 ].replace(
-                    to_replace=correction["pattern"],
-                    value=correction["replacement"],
+                    to_replace=key,
+                    value=value,
                 )
         return df
 
@@ -91,7 +91,7 @@ class MVCCrash(Trusted):
         return df
 
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
-        df = df.dropna(["collision_id", "crash_datetime"])
+        df = df.dropna(subset=["collision_id", "crash_datetime"])
         impute_columns = [
             col for col in df.columns if col not in ["collision_id", "crash_datetime"]
         ]

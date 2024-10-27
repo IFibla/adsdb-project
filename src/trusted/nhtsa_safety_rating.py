@@ -5,7 +5,7 @@ import pandas as pd
 from models.storage.layers.trusted import Trusted
 
 
-class NHTSASafetyRating(Trusted):
+class NHTSASafetyRatingTrusted(Trusted):
     def _get_trusted_table_name(self) -> str:
         return "nhtsa_safety_rating"
 
@@ -20,9 +20,9 @@ class NHTSASafetyRating(Trusted):
 
     def _list_tables(self) -> list[str]:
         return [
-            table[0]
+            table
             for table in super()._list_tables()
-            if table[0].startswith("nhtsa_safety_rating")
+            if table.startswith("nhtsa_safety_rating")
         ]
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:

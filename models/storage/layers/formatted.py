@@ -26,7 +26,7 @@ class Formatted(Layer):
         pass
 
     def compute_table_name(self, filename: str) -> str:
-        return filename.replace(os.path.sep, "_")
+        return filename.replace(os.path.sep, "_").replace("-", "")
 
     def execute(self):
         for f in self.listed_files:

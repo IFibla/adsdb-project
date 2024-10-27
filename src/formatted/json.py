@@ -9,9 +9,9 @@ from models.storage.layers.formatted import Formatted
 class JSONFormatted(Formatted):
     def _list_files(self) -> list[str]:
         return [
-            os.path.splitext(x)[0]  # Remove the .json extension
+            os.path.splitext(x)[0]
             for x in super()._list_files()
-            if x.endswith(".json")  # Filter for .json files
+            if x.endswith(".json")
         ]
 
     def _read_file(self, path: str) -> pd.DataFrame:

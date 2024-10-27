@@ -4,17 +4,16 @@ import pandas as pd
 import numpy as np
 
 
-class MVCVehicles(Trusted):
+class MVCVehiclesTrusted(Trusted):
     def _get_trusted_table_name(self) -> str:
         return "mvc_vehicles"
 
     def _list_tables(self) -> list[str]:
-        return list(
-            filter(
-                lambda x: "motorvehiclecollisionsvehicles" in x,
-                self.formatted_db_connector.get_tables(),
-            )
-        )
+        return [
+            t
+            for t in super()._list_tables()
+            if t.startswith("motorvehiclecollisions_vehicles")
+        ]
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.drop_duplicates("collision_id")

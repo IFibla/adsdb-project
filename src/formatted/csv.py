@@ -16,8 +16,13 @@ class CSVFormatted(Formatted):
             return pd.DataFrame()
 
     def compute_table_name(self, filename: str) -> str:
-        return re.sub(
-            pattern="[^a-zA-Z\d\s:]",
-            repl="",
-            string=filename[:-4].split("/")[-1].lower(),
+        return "_".join(
+            map(
+                lambda x: re.sub(
+                    pattern="[^a-zA-Z\d\s:]",
+                    repl="",
+                    string=x.lower(),
+                ),
+                filename[:-4].split("/")[-3:],
+            )
         )
