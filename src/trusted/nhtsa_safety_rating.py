@@ -34,7 +34,7 @@ class NHTSASafetyRating(Trusted):
         return df
 
     def _remove_additional_ratings(self, df: pd.DataFrame) -> pd.DataFrame:
-        return df[["vehicle_id", "make", "model", "model_year", "overall_rating"]]
+        return df[["make", "model", "model_year", "overall_rating"]]
 
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.replace("Not Rated", pd.NA).convert_dtypes()
