@@ -7,7 +7,11 @@ class MVCVehicles(Trusted):
         return "mvc_vehicles"
 
     def _list_tables(self) -> list[str]:
-        return list(filter(lambda x: "motorvehiclecollisionsvehicles" in x, super()._list_tables()))
+        return list(
+            filter(
+                lambda x: "motorvehiclecollisionsvehicles" in x, super()._list_tables()
+            )
+        )
 
     def _join_all_versions(self, tables_names: list[str]) -> pd.DataFrame:
         pass
