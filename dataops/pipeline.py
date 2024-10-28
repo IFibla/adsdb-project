@@ -1,6 +1,7 @@
 import src
 from models.storage.layers.landing import Landing
 from src.helpers import DBConnector
+from src.helpers import LogDBConnector  # Import the new LogDBConnector
 
 
 class Pipeline:
@@ -14,7 +15,8 @@ class Pipeline:
 
         self._load_connectors()
 
-        self.control_connector = DBConnector(db_path="execution_log.db")
+        # Use LogDBConnector for logging operations
+        self.control_connector = LogDBConnector(db_path="execution_log.db")
         self.control_connector.create_execution_log_table()
 
         self.stages = {
@@ -27,46 +29,49 @@ class Pipeline:
     def _load_connectors(self) -> None:
         self.connectors = {
             "landing_connector": DBConnector(),
-            "formatted_connector": DBConnector(),
             "trusted_connector": DBConnector(),
+            "formatted_connector": DBConnector(),
             "exploitation_connector": DBConnector(),
         }
+
+    def landing_phase(self):
+        layer_name = 'landing'
+        try:
+            print("Executing landing phase...")
+            self.control_connector.update_execution_status(layer_name, 'en ejecución')
+            landing = Landing(
+                temporal_folder=self.temporal_folder,
+                persistent_folder=self.persistent_folder,
+            )
+            landing.execute()
+            self.control_connector.update_execution_status(layer_name, 'completada')
+            print("Landing phase completed.")
+        except Exception as e:
+            self.control_connector.update_execution_status(layer_name, 'fallida', str(e))
+            print(f"Error in landing phase: {e}")
 
     def _execute_phase(self, phase_name: str, module, connector_name: str):
         print(f"Executing {phase_name} phase...")
 
-        loaded_classes = [getattr(module, cls_name) for cls_name in module.__all__]
+        loaded_classes = [
+            getattr(module, cls_name) for cls_name in module.__all__
+        ]
 
         for cls in loaded_classes:
             layer_name = cls.__name__
             try:
-                self.control_connector.update_execution_status(
-                    layer_name, "en ejecución"
-                )
-
+                self.control_connector.update_execution_status(layer_name, "en ejecución")
                 instance = cls(
                     self.persistent_folder, self.connectors.get(connector_name)
                 )
                 print(f"Executing {layer_name} in {phase_name} phase")
                 instance.execute()
-
                 self.control_connector.update_execution_status(layer_name, "completada")
             except Exception as e:
-                self.control_connector.update_execution_status(
-                    layer_name, "fallida", str(e)
-                )
+                self.control_connector.update_execution_status(layer_name, "fallida", str(e))
                 print(f"Error executing {layer_name}: {e}")
 
         print(f"{phase_name.capitalize()} phase completed.")
-
-    def landing_phase(self):
-        print("Executing landing phase...")
-        landing = Landing(
-            temporal_folder=self.temporal_folder,
-            persistent_folder=self.persistent_folder,
-        )
-        landing.execute()
-        print("Landing phase completed.")
 
     def trusted_phase(self):
         self._execute_phase("trusted", src.trusted, "trusted_connector")
@@ -78,14 +83,14 @@ class Pipeline:
         self._execute_phase("exploitation", src.exploitation, "exploitation_connector")
 
     def execute_stage(self, stage_name):
-        """Ejecuta una fase específica si existe en las capas definidas"""
+        """Executes a specific phase if it exists in the defined layers"""
         if stage_name in self.stages:
             self.stages[stage_name]()
         else:
             print(f"Stage '{stage_name}' not found in pipeline.")
 
     def execute_all_stages(self):
-        """Ejecuta todas las fases del pipeline en orden"""
+        """Executes all phases of the pipeline in order"""
         for stage in self.stages:
             self.stages[stage]()
 

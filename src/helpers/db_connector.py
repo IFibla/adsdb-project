@@ -19,62 +19,6 @@ class DBConnector:
         """
         self.connection = duckdb.connect(database=db_path, read_only=read_only)
 
-    def create_execution_log_table(self):
-        """
-        Creates the execution_log table if it does not exist.
-        """
-        query = """
-        CREATE TABLE IF NOT EXISTS execution_log (
-            layer_name VARCHAR,
-            execution_status VARCHAR,
-            last_execution TIMESTAMP,
-            error_message VARCHAR
-        )
-        """
-        self.execute_query(query)
-
-    def update_execution_status(
-        self, layer_name: str, status: str, error_message: str = None
-    ):
-        """
-        Updates the execution status of a layer.
-        """
-        from datetime import datetime
-
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        if error_message:
-            error_message = f"'{error_message}'"
-        else:
-            error_message = "NULL"
-
-        query = f"""
-        INSERT INTO execution_log (layer_name, execution_status, last_execution, error_message)
-        VALUES ('{layer_name}', '{status}', '{timestamp}', {error_message})
-        ON CONFLICT (layer_name) DO UPDATE SET
-            execution_status = '{status}',
-            last_execution = '{timestamp}',
-            error_message = {error_message}
-        """
-        self.execute_query(query)
-
-    def get_layer_status(self, layer_name: str):
-        """
-        Retrieves the execution status of a specific layer.
-        """
-        query = f"SELECT * FROM execution_log WHERE layer_name = '{layer_name}'"
-        result = self.execute_query(query)
-        if result:
-            return result[0]
-        else:
-            return None
-
-    def get_all_layer_statuses(self):
-        """
-        Retrieves the execution status of all layers.
-        """
-        query = "SELECT * FROM execution_log"
-        return self.execute_query(query)
-
     def execute_query(self, query: str) -> list:
         """
         Executes a query against the DuckDB database and returns the result.
@@ -83,11 +27,11 @@ class DBConnector:
             query (str): The SQL query to be executed.
 
         Returns:
-            list: Dictionary returned from the executed query
+            list: Results returned from the executed query
         """
         try:
-            self.connection.execute(query)
-            return self.connection.fetchall()
+            result = self.connection.execute(query).fetchall()
+            return result
         except Exception as e:
             print(f"Error executing query: {e}")
             return []
@@ -98,15 +42,20 @@ class DBConnector:
 
         Args:
             table_name (str): The name of the table where the data will be inserted.
-            data (pd.Dataframe): The data to be inserted. Can be a pandas DataFrame or other compatible format.
+            data (pd.DataFrame): The data to be inserted. Must be a pandas DataFrame.
         """
         if not isinstance(data, pd.DataFrame):
             raise TypeError("Data must be a pandas DataFrame")
         try:
-            self.connection.register("data", data)
+            self.connection.register("data_df", data)
             self.connection.execute(
-                f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data"
+                f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data_df"
             )
+            # If table exists, append data
+            self.connection.execute(
+                f"INSERT INTO {table_name} SELECT * FROM data_df"
+            )
+            self.connection.unregister("data_df")
         except Exception as e:
             print(f"Error inserting data: {e}")
 
@@ -119,11 +68,11 @@ class DBConnector:
             print(f"Error checking if table exists: {e}")
             return False
 
-    def get_tables(self) -> list[str]:
+    def get_tables(self) -> list:
         try:
-            query = f"SELECT table_name FROM information_schema.tables"
-            self.connection.execute(query)
-            return list(map(lambda x: x[0], self.connection.fetchall()))
+            query = "SELECT table_name FROM information_schema.tables"
+            result = self.connection.execute(query).fetchall()
+            return [row[0] for row in result]
         except Exception as e:
             print(f"Error returning all tables: {e}")
             return []
