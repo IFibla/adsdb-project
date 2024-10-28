@@ -48,15 +48,37 @@ class Trusted(Layer):
         return df
 
     def execute(self):
+        from datetime import datetime
+
+        print(f"{datetime.now()}: Starting")
         tables_names = self._list_tables()
+        print(f"{datetime.now()}: Completed _list_tables")
+
         df = self._join_all_versions(tables_names)
+        print(f"{datetime.now()}: Completed _join_all_versions")
+
         df = self._transform_column_names_to_snake_case(df)
+        print(f"{datetime.now()}: Completed _transform_column_names_to_snake_case")
+
         df = self._drop_insignificant_columns(df)
+        print(f"{datetime.now()}: Completed _drop_insignificant_columns")
+
         df = self._clean_duplicates(df)
+        print(f"{datetime.now()}: Completed _clean_duplicates")
+
         df = self._correct_misspellings(df)
+        print(f"{datetime.now()}: Completed _correct_misspellings")
+
         df = self._format_data(df)
+        print(f"{datetime.now()}: Completed _format_data")
+
         df = self._handle_missing_values(df)
+        print(f"{datetime.now()}: Completed _handle_missing_values")
+
         self.trusted_db_connector.insert_data(self._get_trusted_table_name(), df)
+        print(f"{datetime.now()}: Data inserted into {self._get_trusted_table_name()}")
+
+        print(f"Table {self._get_trusted_table_name()} created successfully.")
 
     def get_profiling(self, export_path: str):
         df = self.formatted_db_connector.get_table_as_dataframe(

@@ -35,6 +35,7 @@ class Formatted(Layer):
             if not self.formatted_db_connector.exists_table(formatted_table_name):
                 df = self._read_file(f)
                 self.formatted_db_connector.insert_data(formatted_table_name, df)
+                print(f"Table {formatted_table_name} created successfully.")
 
     def get_profiling(self, table_name: str, export_path: str):
         df = self.formatted_db_connector.get_table_as_dataframe(table_name)
