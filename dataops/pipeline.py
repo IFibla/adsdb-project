@@ -1,5 +1,5 @@
 import src
-from models.storage.layers.landing import Landing
+from src.landing.landing import Landing
 from src.helpers import DBConnector
 from src.helpers import LogDBConnector  # Import the new LogDBConnector
 
