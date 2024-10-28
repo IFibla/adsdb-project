@@ -14,6 +14,9 @@ class Pipeline:
 
         self._load_connectors()
 
+        self.control_connector = DBConnector(db_path="execution_log.db")
+        self.control_connector.create_execution_log_table()
+
         self.stages = {
             "landing": self.landing_phase,
             "trusted": self.trusted_phase,
@@ -29,6 +32,33 @@ class Pipeline:
             "exploitation_connector": DBConnector(),
         }
 
+    def _execute_phase(self, phase_name: str, module, connector_name: str):
+        print(f"Executing {phase_name} phase...")
+
+        loaded_classes = [getattr(module, cls_name) for cls_name in module.__all__]
+
+        for cls in loaded_classes:
+            layer_name = cls.__name__
+            try:
+                self.control_connector.update_execution_status(
+                    layer_name, "en ejecución"
+                )
+
+                instance = cls(
+                    self.persistent_folder, self.connectors.get(connector_name)
+                )
+                print(f"Executing {layer_name} in {phase_name} phase")
+                instance.execute()
+
+                self.control_connector.update_execution_status(layer_name, "completada")
+            except Exception as e:
+                self.control_connector.update_execution_status(
+                    layer_name, "fallida", str(e)
+                )
+                print(f"Error executing {layer_name}: {e}")
+
+        print(f"{phase_name.capitalize()} phase completed.")
+
     def landing_phase(self):
         print("Executing landing phase...")
         landing = Landing(
@@ -39,51 +69,13 @@ class Pipeline:
         print("Landing phase completed.")
 
     def trusted_phase(self):
-        print("Executing trusted phase...")
-
-        loaded_classes = [
-            getattr(src.trusted, cls_name) for cls_name in src.trusted.__all__
-        ]
-
-        for cls in loaded_classes:
-            instance = cls(
-                self.persistent_folder, self.connectors.get("trusted_connector")
-            )
-            print(f"Executing {cls.__name__} in trusted phase")
-            instance.execute()
-
-        print("Trusted phase completed.")
+        self._execute_phase("trusted", src.trusted, "trusted_connector")
 
     def formatted_phase(self):
-        print("Executing formatted phase...")
-
-        loaded_classes = [
-            getattr(src.formatted, cls_name) for cls_name in src.formatted.__all__
-        ]
-
-        for cls in loaded_classes:
-            instance = cls(
-                self.persistent_folder, self.connectors.get("formatted_connector")
-            )
-            instance.execute()
-
-        print("Formatted phase completed.")
+        self._execute_phase("formatted", src.formatted, "formatted_connector")
 
     def exploitation_phase(self):
-        print("Executing exploitation phase...")
-
-        loaded_classes = [
-            getattr(src.exploitation, cls_name) for cls_name in src.exploitation.__all__
-        ]
-
-        for cls in loaded_classes:
-            instance = cls(
-                self.persistent_folder, self.connectors.get("exploitation_connector")
-            )
-            print(f"Executing {cls.__name__} in exploitation phase")
-            instance.execute()
-
-        print("Exploitation phase completed.")
+        self._execute_phase("exploitation", src.exploitation, "exploitation_connector")
 
     def execute_stage(self, stage_name):
         """Ejecuta una fase específica si existe en las capas definidas"""
