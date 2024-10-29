@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pandas as pd
 from sklearn.impute import KNNImputer
 
@@ -25,18 +27,14 @@ class MVCPersonTrusted(Trusted):
 
     def _format_data(self, df: pd.DataFrame) -> pd.DataFrame:
         def one_hot_encode_and_format(df, column_name, prefix):
+            # One-hot encoding with formatting in one step
             encoded_df = pd.get_dummies(df[column_name], prefix=prefix)
-
-            encoded_df.columns = (
-                encoded_df.columns.str.lower()
-                .str.replace(r"[^a-z0-9]+", "_", regex=True)
-                .str.strip("_")
-            )
             return encoded_df
 
         combined_factors = pd.concat(
             [df["contributing_factor_1"], df["contributing_factor_2"]]
         )
+
         one_hot_encoded_factors = (
             one_hot_encode_and_format(
                 pd.DataFrame(combined_factors), column_name=0, prefix="factor"
@@ -45,14 +43,15 @@ class MVCPersonTrusted(Trusted):
             .sum()
         )
 
-        df = pd.concat([df, one_hot_encoded_factors], axis=1)
         df = df.drop(["contributing_factor_1", "contributing_factor_2"], axis=1)
+        df = pd.concat([df, one_hot_encoded_factors], axis=1)
 
         one_hot_encoded_person_type = one_hot_encode_and_format(
             df, "person_type", "person_type"
         )
-        df = pd.concat([df, one_hot_encoded_person_type], axis=1)
-        df = df.drop("person_type", axis=1)
+        df = pd.concat(
+            [df.drop("person_type", axis=1), one_hot_encoded_person_type], axis=1
+        )
 
         df["person_injured"] = df["person_injury"].notna().astype(int)
         df = df.drop("person_injury", axis=1)
@@ -62,7 +61,7 @@ class MVCPersonTrusted(Trusted):
             .fillna(pd.NA)
             .astype("Int64")
         )
-
+        df = self._transform_column_names_to_snake_case(df)
         return df
 
     def _handle_missing_values(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -71,7 +70,6 @@ class MVCPersonTrusted(Trusted):
 
         df_impute = df[impute_columns].copy()
         df_impute = pd.get_dummies(df_impute, columns=["person_sex"], drop_first=True)
-
         imputer = KNNImputer(n_neighbors=5)
 
         df_imputed = imputer.fit_transform(df_impute)
@@ -82,7 +80,6 @@ class MVCPersonTrusted(Trusted):
             .round()
             .astype("Int64")
         )
-
         return df
 
     def _drop_insignificant_columns(self, df: pd.DataFrame) -> pd.DataFrame:

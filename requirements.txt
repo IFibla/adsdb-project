@@ -6,3 +6,5 @@ psutil==5.9.0
 numpy==1.26.4
 scikit-learn==1.5.1
 rapidfuzz==3.5.2
+streamlit-pandas-profiling
+streamlit
