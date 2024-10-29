@@ -52,9 +52,7 @@ class DBConnector:
                 f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data_df"
             )
             # If table exists, append data
-            self.connection.execute(
-                f"INSERT INTO {table_name} SELECT * FROM data_df"
-            )
+            self.connection.execute(f"INSERT INTO {table_name} SELECT * FROM data_df")
             self.connection.unregister("data_df")
         except Exception as e:
             print(f"Error inserting data: {e}")

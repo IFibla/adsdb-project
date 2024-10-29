@@ -54,6 +54,7 @@ class Landing(Layer):
                     os.path.join(destination_folder, new_filename),
                 )
 
+
 if __name__ == "__main__":
     landing = Landing(
         temporal_folder=r"C:\Users\ferra\PycharmProjects\adsdb-project\data\landing\temporal",

@@ -5,9 +5,9 @@ from src.helpers.monitor import Monitoring
 
 class DataOps:
     def __init__(
-            self,
-            temporal_folder: str = r"data\landing\temporal",
-            persistent_folder: str = r"data\landing\persistent",
+        self,
+        temporal_folder: str = r"data\landing\temporal",
+        persistent_folder: str = r"data\landing\persistent",
     ):
         self._monitoring = Monitoring(interval=5)
         self.temporal_folder = temporal_folder
@@ -49,7 +49,8 @@ class DataOps:
             for log in logs:
                 layer_name, status, last_execution, error_message = log
                 print(
-                    f"Layer: {layer_name}, Status: {status}, Last Execution: {last_execution}, Error: {error_message}")
+                    f"Layer: {layer_name}, Status: {status}, Last Execution: {last_execution}, Error: {error_message}"
+                )
         else:
             print("No execution logs found.")
         return logs
