@@ -14,7 +14,7 @@ class MVCPersonTrusted(Trusted):
         return [
             t
             for t in super()._list_tables()
-            if t.startswith("motorvehiclecollisions_person")
+            if t.startswith("motorvehiclecollisionsperson")
         ]
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:

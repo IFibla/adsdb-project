@@ -1,7 +1,6 @@
 import src
 from src.helpers import DBConnector
 from src.helpers import LogDBConnector  # Import the new LogDBConnector
-from src.landing.landing import Landing
 
 
 class Pipeline:
@@ -25,6 +24,13 @@ class Pipeline:
             "exploitation": self.exploitation_phase,
         }
 
+        self.phase_constructor_args = {
+            "landing": self._landing_constructor_args,
+            "formatted": self._formatted_constructor_args,
+            "trusted": self._trusted_constructor_args,
+            "exploitation": self._exploitation_constructor_args,
+        }
+
     def _load_connectors(self) -> None:
         self.connectors = {
             "landing_connector": DBConnector(),
@@ -32,6 +38,24 @@ class Pipeline:
             "formatted_connector": DBConnector(),
             "exploitation_connector": DBConnector(),
         }
+
+    def _landing_constructor_args(self, cls):
+        return cls(self.temporal_folder, self.persistent_folder)
+
+    def _formatted_constructor_args(self, cls):
+        return cls(self.persistent_folder, self.connectors.get("formatted_connector"))
+
+    def _trusted_constructor_args(self, cls):
+        return cls(
+            self.connectors.get("formatted_connector"),
+            self.connectors.get("trusted_connector"),
+        )
+
+    def _exploitation_constructor_args(self, cls):
+        return cls(
+            self.connectors.get("trusted_connector"),
+            self.connectors.get("exploitation_connector"),
+        )
 
     def _execute_phase(self, phase_name: str, module, connector_name: str):
         print(f"Executing {phase_name} phase...")
@@ -41,12 +65,15 @@ class Pipeline:
         for cls in loaded_classes:
             layer_name = cls.__name__
             try:
-                self.control_connector.update_execution_status(
-                    layer_name, "executing"
-                )
-                instance = cls(
-                    self.persistent_folder, self.connectors.get(connector_name)
-                )
+                self.control_connector.update_execution_status(layer_name, "executing")
+                constructor_func = self.phase_constructor_args.get(phase_name)
+                if not constructor_func:
+                    raise ValueError(
+                        f"No constructor function defined for phase '{phase_name}'"
+                    )
+
+                instance = constructor_func(cls)
+
                 print(f"Executing {layer_name} in {phase_name} phase")
                 instance.execute()
                 self.control_connector.update_execution_status(layer_name, "done")

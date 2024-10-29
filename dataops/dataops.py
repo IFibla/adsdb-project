@@ -1,4 +1,4 @@
-from dataops import Pipeline
+from .pipeline import Pipeline
 from src.helpers.log_connector import LogDBConnector
 from src.helpers.monitor import Monitoring
 
