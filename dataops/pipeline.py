@@ -15,7 +15,6 @@ class Pipeline:
 
         self._load_connectors()
 
-        # Use LogDBConnector for logging operations
         self.control_connector = LogDBConnector(db_path="execution_log.db")
         self.control_connector.create_execution_log_table()
 
