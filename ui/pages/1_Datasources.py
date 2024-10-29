@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-st.write("# Motor Vehicle Collisions")
+st.title("Datasources")
+st.write("## New York City Open Data")
 
 st.markdown(
     """
@@ -12,39 +13,43 @@ The Motor Vehicle Collisions data tables provide comprehensive information on al
 - **Vehicle Table**: Contains information on each vehicle involved in a crash, with each row representing a single vehicle. Data available from April 2016 onwards.
 """
 )
-
-st.link_button(
-    "Motor Vehicle Collisions Crash Dataset",
-    "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data",
-)
-st.dataframe(
-    pd.read_csv(
-        "../data/landing/persistent/motor_vehicle_collisions/crashes/2012.csv", nrows=10
+with st.expander("Motor Vehicle Collisions Crash"):
+    st.link_button(
+        "Download",
+        "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data",
     )
-)
-
-st.link_button(
-    "Motor Vehicle Collisions Person Dataset",
-    "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu/about_data",
-)
-st.dataframe(
-    pd.read_csv(
-        "../data/landing/persistent/motor_vehicle_collisions/person/2012.csv", nrows=10
+    st.dataframe(
+        pd.read_csv(
+            "../data/landing/persistent/motor_vehicle_collisions/crashes/2012.csv",
+            nrows=10,
+        )
     )
-)
 
-st.link_button(
-    "Motor Vehicle Collisions Vehicle Dataset",
-    "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4/about_data",
-)
-st.dataframe(
-    pd.read_csv(
-        "../data/landing/persistent/motor_vehicle_collisions/vehicles/2012.csv",
-        nrows=10,
+with st.expander("Motor Vehicle Collisions Person"):
+    st.link_button(
+        "Download",
+        "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Person/f55k-p6yu/about_data",
     )
-)
+    st.dataframe(
+        pd.read_csv(
+            "../data/landing/persistent/motor_vehicle_collisions/person/2012.csv",
+            nrows=10,
+        )
+    )
 
-st.write("# Vehicle Safety Rating")
+with st.expander("Motor Vehicle Collisions Vehicle"):
+    st.link_button(
+        "Download",
+        "https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Vehicles/bm4k-52h4/about_data",
+    )
+    st.dataframe(
+        pd.read_csv(
+            "../data/landing/persistent/motor_vehicle_collisions/vehicles/2012.csv",
+            nrows=10,
+        )
+    )
+
+st.write("## National Highway Traffic Safety Administration")
 st.markdown(
     """
 The NHTSA Safety Ratings provide consumers with comprehensive information on the crash protection and rollover safety of new vehicles. The ratings help consumers make informed decisions when purchasing a vehicle by comparing safety features and performance.
@@ -76,10 +81,11 @@ def fetch_vehicle_data(vehicle_id: int) -> dict:
         return {}
 
 
-number = st.number_input(
-    "Insert the vehicle ID",
-    min_value=1,
-    max_value=25000,
-)
+with st.expander("Vehicle Safety Rating"):
+    number = st.number_input(
+        "Insert the vehicle ID",
+        min_value=1,
+        max_value=25000,
+    )
 
-st.json(fetch_vehicle_data(number))
+    st.json(fetch_vehicle_data(number))

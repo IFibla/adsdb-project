@@ -11,21 +11,24 @@ st.sidebar.header("Contact Information")
 st.sidebar.text("Ignasi Fibla Figuerola")
 st.sidebar.text("Ferran Gonzalez Garcia")
 
+st.image("./dataBackbone.png", caption="Data Backbone")
 
 st.markdown(
     """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+
+"""
+)
+
+st.image("./classDiagram.png", caption="Class Diagram")
+
+st.markdown(
+    """    
+In the previous diagram a structured data processing system is presented. It contains distinct layers for handling data storage, 
+transformation, and exploitation. The `Layer` base class provides a generic `execute` method, while `Trusted`, 
+`Formatted`, and `Exploitation` layers extend its functionality for specific tasks. The `Trusted` layer includes 
+extensive data cleaning and transformation methods, the `Formatted` layer focuses on file handling, and the 
+`Exploitation` layer enables data aggregation and joins for analysis. Specific data sources and formats, like CSV 
+and JSON, have specialized classes under the `Formatted` layer, while `Trusted` classes manage detailed data 
+operations for the different sources. 
 """
 )

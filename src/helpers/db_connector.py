@@ -83,7 +83,7 @@ class DBConnector:
             pd.DataFrame: The table content as a DataFrame.
         """
         try:
-            query = f"SELECT * FROM {table_name} {f'LIMIT {limit}' if limit is not None else ''}"
+            query = f"SELECT DISTINCT * FROM {table_name} {f'LIMIT {limit}' if limit is not None else ''}"
             df = self.connection.execute(query).fetchdf()
             return df
         except Exception as e:
