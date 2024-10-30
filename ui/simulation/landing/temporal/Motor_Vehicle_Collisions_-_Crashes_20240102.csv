@@ -1,0 +1,254 @@
+CRASH DATE,CRASH TIME,BOROUGH,ZIP CODE,LATITUDE,LONGITUDE,LOCATION,ON STREET NAME,CROSS STREET NAME,OFF STREET NAME,NUMBER OF PERSONS INJURED,NUMBER OF PERSONS KILLED,NUMBER OF PEDESTRIANS INJURED,NUMBER OF PEDESTRIANS KILLED,NUMBER OF CYCLIST INJURED,NUMBER OF CYCLIST KILLED,NUMBER OF MOTORIST INJURED,NUMBER OF MOTORIST KILLED,CONTRIBUTING FACTOR VEHICLE 1,CONTRIBUTING FACTOR VEHICLE 2,CONTRIBUTING FACTOR VEHICLE 3,CONTRIBUTING FACTOR VEHICLE 4,CONTRIBUTING FACTOR VEHICLE 5,COLLISION_ID,VEHICLE TYPE CODE 1,VEHICLE TYPE CODE 2,VEHICLE TYPE CODE 3,VEHICLE TYPE CODE 4,VEHICLE TYPE CODE 5,Year
+2024-01-02,10:10,BROOKLYN,11236.0,,,,EAST 103 STREET,SEAVIEW AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692123,Sedan,Sedan,,,,2024
+2024-01-02,22:00,,,,,,FDR DRIVE,,,1.0,0.0,0,0,0,0,1,0,Unspecified,,,,,4692292,Motorcycle,,,,,2024
+2024-01-02,16:20,,,40.763046,-73.768265,"(40.763046, -73.768265)",215 STREET,42 AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692418,Sedan,,,,,2024
+2024-01-02,6:00,,,40.861862,-73.91275,"(40.861862, -73.91275)",WEST FORDHAM ROAD,,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692160,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,18:10,BRONX,10451.0,40.82751,-73.92495,"(40.82751, -73.92495)",EAST 161 STREET,GERARD AVENUE,,1.0,0.0,0,0,0,0,0,0,Passing Too Closely,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,,,,4692359,Sedan,E-Scooter,,,,2024
+2024-01-02,23:47,BRONX,10472.0,40.82998,-73.882385,"(40.82998, -73.882385)",BRONX RIVER AVENUE,COLGATE AVENUE,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692228,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,0:20,BROOKLYN,11235.0,40.585922,-73.93085,"(40.585922, -73.93085)",,,3907      SHORE PARKWAY,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4691846,Sedan,,,,,2024
+2024-01-02,6:51,,,40.71795,-73.94769,"(40.71795, -73.94769)",BROOKLYN QUEENS EXPRESSWAY,,,1.0,0.0,0,0,0,0,1,0,Driver Inexperience,Unspecified,,,,4692198,Sedan,Sedan,,,,2024
+2024-01-02,14:30,MANHATTAN,10035.0,40.803127,-73.93625,"(40.803127, -73.93625)",,,2282      3 AVENUE,0.0,0.0,0,0,0,0,0,0,Reaction to Uninvolved Vehicle,Unspecified,,,,4692288,Van,Sedan,,,,2024
+2024-01-02,6:02,QUEENS,11374.0,40.732582,-73.86806,"(40.732582, -73.86806)",ELIOT AVENUE,QUEENS BOULEVARD,,1.0,0.0,0,0,0,0,1,0,Failure to Yield Right-of-Way,Unspecified,,,,4691918,Sedan,Minicycle,,,,2024
+2024-01-02,15:50,STATEN ISLAND,10310.0,40.62782,-74.12126,"(40.62782, -74.12126)",FOREST AVENUE,CLOVE ROAD,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4692294,Sedan,,,,,2024
+2024-01-02,0:50,,,,,,CROSS BRONX EXPY RAMP,,,2.0,0.0,0,0,0,0,2,0,Aggressive Driving/Road Rage,Unspecified,,,,4691964,Sedan,Sedan,,,,2024
+2024-01-02,19:20,BROOKLYN,11219.0,40.6406,-73.99434,"(40.6406, -73.99434)",NEW UTRECHT AVENUE,FORT HAMILTON PARKWAY,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692135,Sedan,,,,,2024
+2024-01-02,12:19,,,,,,THROGS NECK BRIDGE,,,2.0,0.0,0,0,0,0,2,0,Brakes Defective,Unspecified,,,,4692372,Sedan,Sedan,,,,2024
+2024-01-02,18:50,,,40.763344,-73.75791,"(40.763344, -73.75791)",CROSS ISLAND PARKWAY,,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,Unspecified,,,4692403,Sedan,Sedan,Sedan,,,2024
+2024-01-02,18:36,BROOKLYN,11221.0,40.68969,-73.933395,"(40.68969, -73.933395)",LEXINGTON AVENUE,STUYVESANT AVENUE,,1.0,0.0,0,0,0,0,1,0,Other Vehicular,Unspecified,Unspecified,,,4692514,Sedan,Sedan,Station Wagon/Sport Utility Vehicle,,,2024
+2024-01-02,19:50,,,40.609886,-73.98556,"(40.609886, -73.98556)",72 STREET,,,1.0,0.0,0,0,1,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692109,Sedan,Bike,,,,2024
+2024-01-02,13:20,QUEENS,11374.0,,,,62 DRIVE,JUNCTION BOULEVARD,,1.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692034,Sedan,E-Bike,,,,2024
+2024-01-02,17:05,BRONX,10461.0,40.83455,-73.829414,"(40.83455, -73.829414)",,,3355      EAST TREMONT AVENUE,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692085,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,6:28,STATEN ISLAND,10305.0,,,,Quintard street,Patterson avenue,,0.0,0.0,0,0,0,0,0,0,Driver Inexperience,Passenger Distraction,,,,4692051,Sedan,Sedan,,,,2024
+2024-01-02,9:40,BROOKLYN,11204.0,40.61269,-73.982666,"(40.61269, -73.982666)",WEST 8 STREET,BAY PARKWAY,,1.0,0.0,1,0,0,0,0,0,Driver Inattention/Distraction,,,,,4691993,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,19:16,BROOKLYN,11221.0,40.69069,-73.91621,"(40.69069, -73.91621)",EVERGREEN AVENUE,PUTNAM AVENUE,,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692510,Sedan,,,,,2024
+2024-01-02,8:55,BROOKLYN,11236.0,40.643776,-73.913765,"(40.643776, -73.913765)",EAST 87 STREET,FOSTER AVENUE,,0.0,0.0,0,0,0,0,0,0,Backing Unsafely,Unspecified,,,,4692266,Tow Truck / Wrecker,Sedan,,,,2024
+2024-01-02,14:13,BROOKLYN,11221.0,40.693256,-73.93494,"(40.693256, -73.93494)",,,990       DE KALB AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692306,Bus,Sedan,,,,2024
+2024-01-02,12:45,QUEENS,11362.0,40.751297,-73.73986,"(40.751297, -73.73986)",DOUGLASTON PARKWAY,67 AVENUE,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692414,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,9:40,MANHATTAN,10028.0,40.777996,-73.95614,"(40.777996, -73.95614)",,,146       EAST 84 STREET,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692027,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,18:05,QUEENS,11373.0,40.74623,-73.89037,"(40.74623, -73.89037)",BROADWAY,75 STREET,,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692114,Bus,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,8:22,,,40.685368,-73.9109,"(40.685368, -73.9109)",DECATUR STREET,,,1.0,0.0,0,0,0,0,1,0,Passing Too Closely,Unspecified,,,,4692210,Sedan,Bus,,,,2024
+2024-01-02,18:40,,,40.870987,-73.84726,"(40.870987, -73.84726)",FISH AVENUE,EAST GUN HILL ROAD,,0.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Failure to Yield Right-of-Way,,,,4692402,Convertible,Convertible,,,,2024
+2024-01-02,15:00,QUEENS,11417.0,40.674557,-73.859604,"(40.674557, -73.859604)",SUTTER AVENUE,NORTH CONDUIT AVENUE,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unspecified,,,,4692137,Sedan,Sedan,,,,2024
+2024-01-02,0:00,BROOKLYN,11214.0,40.608562,-73.99414,"(40.608562, -73.99414)",20 AVENUE,79 STREET,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Driver Inattention/Distraction,,,,4692178,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,8:49,BROOKLYN,11234.0,40.62192,-73.936134,"(40.62192, -73.936134)",FLATBUSH AVENUE,LOTT PLACE,,0.0,0.0,0,0,0,0,0,0,Unsafe Lane Changing,Unspecified,,,,4692061,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,14:37,BRONX,10456.0,40.83056,-73.903244,"(40.83056, -73.903244)",,,1229      FRANKLIN AVENUE,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692563,Sedan,,,,,2024
+2024-01-02,18:35,BROOKLYN,11230.0,40.619396,-73.969574,"(40.619396, -73.969574)",OCEAN PARKWAY,AVENUE L,,0.0,0.0,0,0,0,0,0,0,Unsafe Lane Changing,Unspecified,,,,4692426,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,17:39,QUEENS,11374.0,40.731144,-73.86937,"(40.731144, -73.86937)",BOOTH STREET,ELIOT AVENUE,,1.0,0.0,0,0,0,0,1,0,Alcohol Involvement,Unspecified,Unspecified,Unspecified,,4692240,Sedan,Sedan,Station Wagon/Sport Utility Vehicle,Sedan,,2024
+2024-01-02,9:00,STATEN ISLAND,10301.0,40.615623,-74.105354,"(40.615623, -74.105354)",VICTORY BOULEVARD,ONTARIO AVENUE,,0.0,0.0,0,0,0,0,0,0,Pavement Slippery,Unspecified,,,,4692295,Bus,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,16:36,,,40.77277,-73.804184,"(40.77277, -73.804184)",160 STREET,,,1.0,0.0,0,0,0,0,1,0,Fatigued/Drowsy,Unspecified,,,,4692189,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,23:30,,,40.826553,-73.93466,"(40.826553, -73.93466)",HARLEM RIVER DRIVE,,,0.0,0.0,0,0,0,0,0,0,Driver Inexperience,Unspecified,,,,4692145,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,18:40,,,40.86804,-73.879105,"(40.86804, -73.879105)",SOUTHERN BOULEVARD,MOSHOLU PARKWAY,,0.0,0.0,0,0,0,0,0,0,Other Vehicular,Aggressive Driving/Road Rage,,,,4692774,Pick-up Truck,Sedan,,,,2024
+2024-01-02,22:00,BRONX,10466.0,40.88874,-73.839836,"(40.88874, -73.839836)",,,1307      EAST 233 STREET,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4692328,Bike,,,,,2024
+2024-01-02,21:51,BRONX,10454.0,40.80671,-73.91728,"(40.80671, -73.91728)",,,548       EAST 138 STREET,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692202,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,6:00,MANHATTAN,10010.0,,,,,,175       5 AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692330,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:55,MANHATTAN,10035.0,40.80256,-73.943,"(40.80256, -73.943)",EAST 120 STREET,MADISON AVENUE,,1.0,0.0,0,0,0,0,1,0,Unspecified,,,,,4692289,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,0:39,BROOKLYN,11229.0,40.59861,-73.938644,"(40.59861, -73.938644)",AVENUE V,BATCHELDER STREET,,1.0,0.0,0,0,0,0,1,0,Passing Too Closely,Unspecified,,,,4691847,Station Wagon/Sport Utility Vehicle,Box Truck,,,,2024
+2024-01-02,20:34,QUEENS,11434.0,40.664017,-73.7686,"(40.664017, -73.7686)",FARMERS BOULEVARD,BREWER BOULEVARD,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692670,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,6:24,QUEENS,11378.0,40.726696,-73.92293,"(40.726696, -73.92293)",,,44-03     56 ROAD,0.0,0.0,0,0,0,0,0,0,Pavement Slippery,Unspecified,,,,4692172,Station Wagon/Sport Utility Vehicle,Flat Bed,,,,2024
+2024-01-02,21:20,QUEENS,11385.0,40.70059,-73.89696,"(40.70059, -73.89696)",,,60-36     MYRTLE AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692547,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,7:10,,,40.72621,-73.920525,"(40.72621, -73.920525)",56 ROAD,,,0.0,0.0,0,0,0,0,0,0,Pavement Slippery,Unspecified,Unspecified,,,4691933,Station Wagon/Sport Utility Vehicle,Flat Bed,Box Truck,,,2024
+2024-01-02,11:54,QUEENS,11420.0,,,,,,111-04    114 STREET,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692140,Sedan,,,,,2024
+2024-01-02,20:56,MANHATTAN,10019.0,40.762394,-73.97861,"(40.762394, -73.97861)",WEST 54 STREET,AVENUE OF THE AMERICAS,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692290,Bus,,,,,2024
+2024-01-02,19:14,,,40.628662,-74.13675,"(40.628662, -74.13675)",DECKER AVENUE,CATHERINE STREET,,1.0,0.0,1,0,0,0,0,0,Driver Inattention/Distraction,,,,,4692191,Pick-up Truck,,,,,2024
+2024-01-02,11:15,BROOKLYN,11213.0,40.66427,-73.9303,"(40.66427, -73.9303)",,,1039      MONTGOMERY STREET,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692233,Tanker,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,0:00,BROOKLYN,11234.0,40.616436,-73.92953,"(40.616436, -73.92953)",AVENUE O,SCHENECTADY AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692060,Bus,Power shov,,,,2024
+2024-01-02,15:40,,,40.856625,-73.8319,"(40.856625, -73.8319)",HUTCHINSON RIVER PARKWAY,,,2.0,0.0,0,0,0,0,2,0,Unspecified,Unspecified,,,,4692086,Sedan,Sedan,,,,2024
+2024-01-02,6:00,,,40.861862,-73.91275,"(40.861862, -73.91275)",WEST FORDHAM ROAD,,,0.0,0.0,0,0,0,0,0,0,Pavement Slippery,Pavement Slippery,Driver Inattention/Distraction,Unspecified,,4692163,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Sedan,,,2024
+2024-01-02,12:30,MANHATTAN,10018.0,40.756123,-73.991165,"(40.756123, -73.991165)",,,300       WEST 40 STREET,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692028,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,21:18,,,,,,FDR DRIVE,EAST 132 STREET,,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,Unspecified,,,,4692356,Sedan,Sedan,,,,2024
+2024-01-02,19:55,MANHATTAN,10005.0,40.70518,-74.0074,"(40.70518, -74.0074)",WATER STREET,WALL STREET,,1.0,0.0,1,0,0,0,0,0,Traffic Control Disregarded,,,,,4692435,Bike,,,,,2024
+2024-01-02,8:29,BROOKLYN,11208.0,40.668785,-73.87758,"(40.668785, -73.87758)",DUMONT AVENUE,ATKINS AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692076,Sedan,,,,,2024
+2024-01-02,11:53,BRONX,10460.0,40.838238,-73.876686,"(40.838238, -73.876686)",EAST 177 STREET,BRONX PARK AVENUE,,0.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Unspecified,,,,4692206,Sedan,Sedan,,,,2024
+2024-01-02,14:05,BROOKLYN,11223.0,40.593323,-73.964645,"(40.593323, -73.964645)",OCEAN PARKWAY,AVENUE W,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692633,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,17:00,BROOKLYN,11223.0,40.597683,-73.96686,"(40.597683, -73.96686)",EAST 5 STREET,AVENUE U,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692154,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,15:15,,,40.616608,-74.14234,"(40.616608, -74.14234)",CRYSTAL AVENUE,WATCHOGUE ROAD,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692214,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,,2024
+2024-01-02,5:56,,,40.761204,-73.75539,"(40.761204, -73.75539)",CROSS ISLAND PARKWAY,,,1.0,0.0,0,0,0,0,1,0,Outside Car Distraction,Outside Car Distraction,Unspecified,,,4692413,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,2024
+2024-01-02,8:40,BROOKLYN,11234.0,40.63747,-73.91918,"(40.63747, -73.91918)",FARRAGUT ROAD,RALPH AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4691955,Taxi,Garbage or Refuse,,,,2024
+2024-01-02,22:30,QUEENS,11356.0,40.7856,-73.83936,"(40.7856, -73.83936)",129 STREET,14 AVENUE,,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692518,Sedan,,,,,2024
+2024-01-02,22:30,QUEENS,11366.0,40.73508,-73.7769,"(40.73508, -73.7769)",73 AVENUE,196 STREET,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692125,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,14:15,,,40.679565,-73.92882,"(40.679565, -73.92882)",REID AVENUE,,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692471,Carry All,,,,,2024
+2024-01-02,8:04,BROOKLYN,11228.0,40.627846,-74.01529,"(40.627846, -74.01529)",,,860       72 STREET,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692371,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,23:17,MANHATTAN,10011.0,40.741646,-74.00487,"(40.741646, -74.00487)",9 AVENUE,WEST 15 STREET,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692255,Taxi,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,22:30,,,40.587265,-73.983475,"(40.587265, -73.983475)",STILLWELL AVENUE,,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Driver Inattention/Distraction,,,,4692299,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,19:50,,,40.868282,-73.90108,"(40.868282, -73.90108)",WEST KINGSBRIDGE ROAD,,,1.0,0.0,0,0,0,0,1,0,Passing or Lane Usage Improper,Driver Inattention/Distraction,,,,4692177,Sedan,Motorcycle,,,,2024
+2024-01-02,6:00,BROOKLYN,11221.0,40.69069,-73.91621,"(40.69069, -73.91621)",EVERGREEN AVENUE,PUTNAM AVENUE,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692213,Pick-up Truck,,,,,2024
+2024-01-02,10:09,BROOKLYN,11226.0,40.637768,-73.95868,"(40.637768, -73.95868)",OCEAN AVENUE,NEWKIRK AVENUE,,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,Unspecified,,,4691986,Sedan,Sedan,Sedan,,,2024
+2024-01-02,17:45,BROOKLYN,11206.0,40.695705,-73.94637,"(40.695705, -73.94637)",MYRTLE AVENUE,TOMPKINS AVENUE,,1.0,0.0,0,0,0,0,1,0,Driver Inexperience,Unspecified,,,,4692320,Moped,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,15:27,,,40.70806,-73.8073,"(40.70806, -73.8073)",150 STREET,,,1.0,0.0,1,0,0,0,0,0,Driver Inattention/Distraction,,,,,4692106,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,22:30,BRONX,10463.0,40.882385,-73.90408,"(40.882385, -73.90408)",WEST 234 STREET,KINGSBRIDGE AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692340,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,14:45,,,40.730366,-73.91388,"(40.730366, -73.91388)",LONG ISLAND EXPRESSWAY,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692169,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,13:45,QUEENS,11434.0,40.666695,-73.767136,"(40.666695, -73.767136)",SOUTH CONDUIT AVENUE,FARMERS BOULEVARD,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692315,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,14:16,MANHATTAN,10010.0,40.74109,-73.990555,"(40.74109, -73.990555)",,,1         WEST 22 STREET,1.0,0.0,1,0,0,0,0,0,Passing or Lane Usage Improper,,,,,4692238,Bike,,,,,2024
+2024-01-02,7:00,BROOKLYN,11234.0,40.628586,-73.92113,"(40.628586, -73.92113)",AVENUE J,EAST 57 STREET,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692610,Bike,Sedan,,,,2024
+2024-01-02,0:05,,,,,,37 AVENUE,69 STREET,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4691885,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:30,QUEENS,11385.0,40.703663,-73.90152,"(40.703663, -73.90152)",68 AVENUE,FOREST AVENUE,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692546,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,,2024
+2024-01-02,10:56,,,40.785786,-73.978546,"(40.785786, -73.978546)",BROADWAY,,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,,,,4692437,Taxi,Sedan,,,,2024
+2024-01-02,4:54,BROOKLYN,11207.0,40.663456,-73.89757,"(40.663456, -73.89757)",,,503       WILLIAMS AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692075,Ambulance,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,19:55,QUEENS,11101.0,40.737537,-73.929955,"(40.737537, -73.929955)",GREENPOINT AVENUE,HUNTERS POINT AVENUE,,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,,,,,4692490,Sedan,,,,,2024
+2024-01-02,15:10,BROOKLYN,11208.0,40.671738,-73.86815,"(40.671738, -73.86815)",BLAKE AVENUE,HEMLOCK STREET,,1.0,0.0,0,0,1,0,0,0,Traffic Control Disregarded,Unspecified,,,,4692077,Station Wagon/Sport Utility Vehicle,Bike,,,,2024
+2024-01-02,12:15,,,40.59602,-73.74303,"(40.59602, -73.74303)",BEACH 8 STREET,,,1.0,0.0,0,0,0,0,1,0,Backing Unsafely,Unspecified,,,,4692382,Sedan,Pick-up Truck,,,,2024
+2024-01-02,20:44,BROOKLYN,11210.0,40.63376,-73.947754,"(40.63376, -73.947754)",,,2113      NOSTRAND AVENUE,0.0,0.0,0,0,0,0,0,0,Backing Unsafely,Unspecified,,,,4692664,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,17:21,MANHATTAN,10027.0,40.813553,-73.95639,"(40.813553, -73.95639)",,,445       WEST 125 STREET,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Failure to Yield Right-of-Way,,,,4692113,Pick-up Truck,Sedan,,,,2024
+2024-01-02,18:37,,,,,,OCEAN PARKWAY,CHURCH AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692420,Station Wagon/Sport Utility Vehicle,Bus,,,,2024
+2024-01-02,22:00,QUEENS,11101.0,40.75201,-73.93016,"(40.75201, -73.93016)",NORTHERN BOULEVARD,34 STREET,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692152,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,8:07,BRONX,10459.0,40.824654,-73.89194,"(40.824654, -73.89194)",WESTCHESTER AVENUE,SOUTHERN BOULEVARD,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692009,Sedan,Sedan,,,,2024
+2024-01-02,10:00,BROOKLYN,11201.0,40.694923,-73.98602,"(40.694923, -73.98602)",,,105       JOHNSON STREET,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692383,Sedan,,,,,2024
+2024-01-02,11:47,MANHATTAN,10013.0,40.718266,-74.00706,"(40.718266, -74.00706)",WEST BROADWAY,LEONARD STREET,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692031,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,4:57,BRONX,10466.0,40.890156,-73.85746,"(40.890156, -73.85746)",,,750       EAST 229 STREET,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692112,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,3:00,BROOKLYN,11230.0,40.629055,-73.9787,"(40.629055, -73.9787)",,,2         WEBSTER AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692750,Sedan,Van,,,,2024
+2024-01-02,15:55,QUEENS,11420.0,40.6759,-73.81205,"(40.6759, -73.81205)",,,116-49    126 STREET,0.0,0.0,0,0,0,0,0,0,Backing Unsafely,Unspecified,,,,4692139,Sedan,Pick-up Truck,,,,2024
+2024-01-02,21:05,BROOKLYN,11236.0,40.634663,-73.88435,"(40.634663, -73.88435)",,,1540      EAST 102 STREET,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692544,Sedan,,,,,2024
+2024-01-02,12:10,BROOKLYN,11234.0,40.619164,-73.93419,"(40.619164, -73.93419)",,,4205      AVENUE P,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692056,Sedan,Sedan,,,,2024
+2024-01-02,15:30,QUEENS,11104.0,40.743507,-73.92628,"(40.743507, -73.92628)",,,45-46     39 STREET,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692166,Sedan,Sedan,,,,2024
+2024-01-02,9:25,,,40.70504,-73.959045,"(40.70504, -73.959045)",BROOKLYN QUEENS EXPRESSWAY,,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Following Too Closely,Unspecified,,,4691982,Sedan,Station Wagon/Sport Utility Vehicle,Tractor Truck Gasoline,,,2024
+2024-01-02,20:37,BROOKLYN,11220.0,40.643517,-73.99865,"(40.643517, -73.99865)",,,862       44 STREET,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692129,Sedan,Taxi,,,,2024
+2024-01-02,14:00,BRONX,10466.0,40.890545,-73.84087,"(40.890545, -73.84087)",WILDER AVENUE,STRANG AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692376,Sedan,,,,,2024
+2024-01-02,21:55,QUEENS,11365.0,40.733074,-73.80467,"(40.733074, -73.80467)",,,164-12    69 AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692119,Sedan,,,,,2024
+2024-01-02,0:35,BROOKLYN,11221.0,40.686115,-73.925354,"(40.686115, -73.925354)",,,796       JEFFERSON AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692497,Sedan,Pick-up Truck,,,,2024
+2024-01-02,17:45,,,40.777714,-73.82406,"(40.777714, -73.82406)",PARSONS BOULEVARD,,,1.0,0.0,0,0,1,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692193,Bike,Sedan,,,,2024
+2024-01-02,19:48,QUEENS,11363.0,40.766075,-73.74514,"(40.766075, -73.74514)",,,44-30     DOUGLASTON PARKWAY,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692416,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,6:25,QUEENS,11419.0,40.68811,-73.819336,"(40.68811, -73.819336)",LIBERTY AVENUE,125 STREET,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692476,Pick-up Truck,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,19:34,MANHATTAN,10036.0,40.760624,-73.99103,"(40.760624, -73.99103)",,,648       9 AVENUE,1.0,0.0,0,0,1,0,0,0,Unspecified,Unspecified,,,,4692281,Sedan,Bike,,,,2024
+2024-01-02,13:36,,,,,,,,101       NAVY STREET,1.0,0.0,1,0,0,0,0,0,Backing Unsafely,,,,,4692698,PK,,,,,2024
+2024-01-02,19:25,STATEN ISLAND,10310.0,40.632526,-74.10854,"(40.632526, -74.10854)",DAVIS AVENUE,DEKAY STREET,,1.0,0.0,1,0,0,0,0,0,,,,,,4692182,,,,,,2024
+2024-01-02,17:56,,,40.84441,-73.90117,"(40.84441, -73.90117)",PARK AVENUE,,,0.0,0.0,0,0,0,0,0,0,Other Vehicular,Other Vehicular,,,,4692175,Sedan,Sedan,,,,2024
+2024-01-02,6:30,,,40.68708,-73.913895,"(40.68708, -73.913895)",BUSHWICK AVENUE,,,1.0,0.0,0,0,1,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4691937,Sedan,Bike,,,,2024
+2024-01-02,11:00,BROOKLYN,11217.0,40.678978,-73.98501,"(40.678978, -73.98501)",3 AVENUE,SACKETT STREET,,0.0,0.0,0,0,0,0,0,0,View Obstructed/Limited,Other Vehicular,,,,4692104,Pick-up Truck,Sedan,,,,2024
+2024-01-02,16:30,,,40.60719,-74.16243,"(40.60719, -74.16243)",VICTORY BOULEVARD,RICHMOND AVENUE,,2.0,0.0,0,0,0,0,2,0,Driver Inattention/Distraction,Unspecified,,,,4692215,EMS Bus,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,11:19,BROOKLYN,11230.0,40.624763,-73.96518,"(40.624763, -73.96518)",CONEY ISLAND AVENUE,AVENUE J,,1.0,0.0,0,0,0,0,1,0,Failure to Yield Right-of-Way,Unspecified,,,,4692552,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,13:00,BROOKLYN,11203.0,40.659946,-73.94185,"(40.659946, -73.94185)",,,561       RUTLAND ROAD,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692234,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:21,BROOKLYN,11209.0,40.624744,-74.029274,"(40.624744, -74.029274)",,,339       84 STREET,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692370,Sedan,Sedan,,,,2024
+2024-01-02,16:20,,,40.598213,-74.180466,"(40.598213, -74.180466)",,,3730      VICTORY BOULEVARD,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4692205,Sedan,Sedan,,,,2024
+2024-01-02,19:52,BROOKLYN,11223.0,40.599957,-73.961334,"(40.599957, -73.961334)",,,2332      CONEY ISLAND AVENUE,1.0,0.0,0,0,0,0,1,0,Alcohol Involvement,Unspecified,,,,4692155,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,,2024
+2024-01-02,9:45,,,40.762707,-73.98322,"(40.762707, -73.98322)",BROADWAY,,,0.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4692408,Van,Tractor Truck Diesel,,,,2024
+2024-01-02,20:35,MANHATTAN,10040.0,40.85618,-73.92872,"(40.85618, -73.92872)",WEST 192 STREET,SAINT NICHOLAS AVENUE,,0.0,0.0,0,0,0,0,0,0,Backing Unsafely,Unspecified,,,,4692250,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,12:45,,,40.698326,-73.96106,"(40.698326, -73.96106)",FLUSHING AVENUE,,,0.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Unspecified,Unspecified,,,4692321,Sedan,Tractor Truck Diesel,Station Wagon/Sport Utility Vehicle,,,2024
+2024-01-02,3:42,,,40.900925,-73.88852,"(40.900925, -73.88852)",HENRY HUDSON PARKWAY,,,6.0,0.0,0,0,0,0,6,0,Pavement Slippery,,,,,4692342,FIRETRUCK,,,,,2024
+2024-01-02,18:15,BROOKLYN,11215.0,40.670265,-73.99763,"(40.670265, -73.99763)",HAMILTON AVENUE,14 STREET,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692577,Sedan,Sedan,,,,2024
+2024-01-02,1:00,QUEENS,11415.0,40.713463,-73.828995,"(40.713463, -73.828995)",,,120-34    QUEENS BOULEVARD,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4691887,Sedan,,,,,2024
+2024-01-02,15:20,QUEENS,11368.0,40.741104,-73.85382,"(40.741104, -73.85382)",108 STREET,OTIS AVENUE,,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4692181,Sedan,Moped,,,,2024
+2024-01-02,20:30,MANHATTAN,10029.0,40.79293,-73.94791,"(40.79293, -73.94791)",EAST 106 STREET,PARK AVENUE,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692450,Moped,Sedan,,,,2024
+2024-01-02,8:45,BROOKLYN,11219.0,40.63776,-73.99516,"(40.63776, -73.99516)",,,1138      48 STREET,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4692082,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,14:30,BROOKLYN,11230.0,40.612934,-73.97268,"(40.612934, -73.97268)",RYDER AVENUE,EAST 2 STREET,,1.0,0.0,1,0,0,0,0,0,,,,,,4692421,,,,,,2024
+2024-01-02,18:00,BROOKLYN,11207.0,40.660927,-73.892426,"(40.660927, -73.892426)",,,672       PENNSYLVANIA AVENUE,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692279,Sedan,,,,,2024
+2024-01-02,19:00,,,40.582977,-73.98042,"(40.582977, -73.98042)",BELT PARKWAY,,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692297,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,23:26,QUEENS,11691.0,40.603497,-73.74514,"(40.603497, -73.74514)",,,837       CORNAGA AVENUE,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,Unspecified,,,,4692378,Van,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,14:40,BROOKLYN,11201.0,40.690346,-73.99206,"(40.690346, -73.99206)",STATE STREET,COURT STREET,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4692116,Sedan,,,,,2024
+2024-01-02,20:02,,,40.76197,-73.92539,"(40.76197, -73.92539)",BROADWAY,,,0.0,0.0,0,0,0,0,0,0,Backing Unsafely,Unspecified,,,,4692151,Sedan,Sedan,,,,2024
+2024-01-02,8:30,QUEENS,11368.0,40.756287,-73.860725,"(40.756287, -73.860725)",34 AVENUE,108 STREET,,1.0,0.0,0,0,0,0,1,0,Failure to Keep Right,,,,,4692010,Sedan,,,,,2024
+2024-01-02,18:00,QUEENS,11423.0,40.716423,-73.760376,"(40.716423, -73.760376)",,,90-03     201 STREET,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692739,Sedan,Sedan,,,,2024
+2024-01-02,13:09,QUEENS,11691.0,40.606804,-73.75956,"(40.606804, -73.75956)",,,13-48     EGGERT PLACE,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692391,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,9:15,,,40.60862,-74.14824,"(40.60862, -74.14824)",STATEN ISLAND EXPRESSWAY,,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692212,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,22:10,QUEENS,11432.0,40.714035,-73.78281,"(40.714035, -73.78281)",MIDLAND PARKWAY,WEXFORD TERRACE,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,,,,4692121,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,12:57,BROOKLYN,11229.0,40.598923,-73.94546,"(40.598923, -73.94546)",,,2135      EAST 26 STREET,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4692156,Sedan,Sedan,,,,2024
+2024-01-02,21:33,,,40.793198,-73.82414,"(40.793198, -73.82414)",WHITESTONE EXPRESSWAY,,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692504,Sedan,Sedan,,,,2024
+2024-01-02,8:00,,,40.602947,-73.89932,"(40.602947, -73.89932)",BELT PARKWAY,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4691998,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,16:25,QUEENS,11416.0,40.679432,-73.86308,"(40.679432, -73.86308)",,,74-17     101 AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inexperience,Unspecified,,,,4692313,Sedan,Sedan,,,,2024
+2024-01-02,7:20,BRONX,10466.0,40.897625,-73.85625,"(40.897625, -73.85625)",RICHARDSON AVENUE,EAST 237 STREET,,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,Traffic Control Disregarded,,,,4692066,Station Wagon/Sport Utility Vehicle,Bus,,,,2024
+2024-01-02,20:40,MANHATTAN,10022.0,40.758488,-73.97514,"(40.758488, -73.97514)",EAST 51 STREET,MADISON AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692407,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,6:35,BROOKLYN,11226.0,40.652794,-73.946884,"(40.652794, -73.946884)",NEW YORK AVENUE,LINDEN BOULEVARD,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Other Vehicular,,,,4691967,Pick-up Truck,Sedan,,,,2024
+2024-01-02,22:30,QUEENS,11377.0,40.743454,-73.91484,"(40.743454, -73.91484)",50 STREET,ROOSEVELT AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692167,Sedan,Moped,,,,2024
+2024-01-02,21:50,MANHATTAN,10032.0,40.838127,-73.946526,"(40.838127, -73.946526)",,,900       RIVERSIDE DRIVE,1.0,0.0,1,0,0,0,0,0,Driver Inexperience,,,,,4692373,Van,,,,,2024
+2024-01-02,18:35,BROOKLYN,11209.0,40.62806,-74.02029,"(40.62806, -74.02029)",BAY RIDGE PARKWAY,6 AVENUE,,1.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Unspecified,,,,4692111,Station Wagon/Sport Utility Vehicle,E-Bike,,,,2024
+2024-01-02,11:40,,,40.84487,-73.92068,"(40.84487, -73.92068)",CROSS BRONX EXPY,,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unspecified,,,,4692624,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,23:57,QUEENS,11429.0,40.716145,-73.73118,"(40.716145, -73.73118)",222 STREET,99 AVENUE,,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4692217,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,16:05,BRONX,10452.0,40.83955,-73.91595,"(40.83955, -73.91595)",EAST 170 STREET,WALTON AVENUE,,1.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692195,E-Scooter,Moped,,,,2024
+2024-01-02,11:11,QUEENS,11375.0,40.722622,-73.849144,"(40.722622, -73.849144)",YELLOWSTONE BOULEVARD,GERARD PLACE,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692237,Sedan,,,,,2024
+2024-01-02,0:18,BRONX,10466.0,40.89341,-73.85737,"(40.89341, -73.85737)",EAST 233 STREET,WHITE PLAINS ROAD,,1.0,0.0,0,0,0,0,1,0,Reaction to Uninvolved Vehicle,,,,,4692105,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,10:50,STATEN ISLAND,10312.0,40.54534,-74.160576,"(40.54534, -74.160576)",,,4343      AMBOY ROAD,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692052,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:15,QUEENS,11358.0,40.7555,-73.792725,"(40.7555, -73.792725)",UTOPIA PARKWAY,45 AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692415,Sedan,Sedan,,,,2024
+2024-01-02,5:05,QUEENS,11420.0,40.681522,-73.82473,"(40.681522, -73.82473)",109 AVENUE,116 STREET,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692134,Sedan,,,,,2024
+2024-01-02,20:22,,,40.862602,-73.92028,"(40.862602, -73.92028)",10 AVENUE,,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692287,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,16:00,BROOKLYN,11219.0,40.629047,-74.01159,"(40.629047, -74.01159)",,,6811      FORT HAMILTON PARKWAY,2.0,0.0,0,0,0,0,2,0,Driver Inattention/Distraction,Driver Inattention/Distraction,,,,4692369,Station Wagon/Sport Utility Vehicle,Bus,,,,2024
+2024-01-02,11:10,,,40.731983,-73.91912,"(40.731983, -73.91912)",LONG ISLAND EXPRESSWAY,,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692033,Pick-up Truck,,,,,2024
+2024-01-02,6:11,QUEENS,11693.0,,,,,,125       CROSS BAY BOULEVARD,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4691945,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,23:10,,,40.753986,-73.87215,"(40.753986, -73.87215)",34 ROAD,JUNCTION BOULEVARD,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692173,Sedan,Sedan,,,,2024
+2024-01-02,6:11,,,40.849403,-73.871445,"(40.849403, -73.871445)",BRONX RIVER PARKWAY,,,0.0,0.0,0,0,0,0,0,0,Driver Inexperience,Unsafe Speed,,,,4692138,Sedan,Sedan,,,,2024
+2024-01-02,6:30,BRONX,10467.0,40.882217,-73.88046,"(40.882217, -73.88046)",EAST GUN HILL ROAD,DEKALB AVENUE,,2.0,0.0,0,0,0,0,2,0,Failure to Yield Right-of-Way,Unspecified,,,,4692183,Sedan,Sedan,,,,2024
+2024-01-02,12:33,,,40.718018,-73.99996,"(40.718018, -73.99996)",CENTRE STREET,,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,,,,4692392,Dump,Box Truck,,,,2024
+2024-01-02,13:03,BROOKLYN,11204.0,40.6266,-73.98271,"(40.6266, -73.98271)",18 AVENUE,52 STREET,,1.0,0.0,0,0,1,0,0,0,Unspecified,Unspecified,,,,4692083,Station Wagon/Sport Utility Vehicle,Bike,,,,2024
+2024-01-02,15:50,,,40.737278,-73.85246,"(40.737278, -73.85246)",LONG ISLAND EXPRESSWAY,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Following Too Closely,Following Too Closely,Unspecified,,4692460,Sedan,Station Wagon/Sport Utility Vehicle,Sedan,Sedan,,2024
+2024-01-02,7:15,MANHATTAN,10033.0,40.84623,-73.943085,"(40.84623, -73.943085)",,,1202      RIVERSIDE DRIVE,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,Unspecified,,,,4692379,,,,,,2024
+2024-01-02,14:33,BROOKLYN,11201.0,40.692307,-73.99551,"(40.692307, -73.99551)",,,264       HENRY STREET,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4692065,Sedan,Sedan,,,,2024
+2024-01-02,22:10,,,40.66895,-73.9339,"(40.66895, -73.9339)",SCHENECTADY AVENUE,,,1.0,0.0,0,0,1,0,0,0,Driver Inattention/Distraction,Driver Inattention/Distraction,,,,4692122,Taxi,Bike,,,,2024
+2024-01-02,22:00,QUEENS,11355.0,40.750706,-73.82322,"(40.750706, -73.82322)",45 AVENUE,COLDEN STREET,,1.0,0.0,0,0,0,0,1,0,Alcohol Involvement,Unspecified,Unspecified,Unspecified,,4692522,Sedan,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,2024
+2024-01-02,20:45,BROOKLYN,11229.0,40.60164,-73.95184,"(40.60164, -73.95184)",OCEAN AVENUE,AVENUE T,,1.0,0.0,0,0,1,0,0,0,Traffic Control Disregarded,Unspecified,,,,4692507,Station Wagon/Sport Utility Vehicle,Bike,,,,2024
+2024-01-02,10:15,,,40.643917,-74.0008,"(40.643917, -74.0008)",8 AVENUE,,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4692015,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,8:11,BROOKLYN,11205.0,40.694206,-73.97312,"(40.694206, -73.97312)",,,93        CARLTON AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692697,Sedan,,,,,2024
+2024-01-02,13:50,BRONX,10459.0,40.826794,-73.89192,"(40.826794, -73.89192)",EAST 167 STREET,SOUTHERN BOULEVARD,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4692555,Sedan,,,,,2024
+2024-01-02,14:00,,,40.61423,-74.15608,"(40.61423, -74.15608)",MARTIN LUTHER KING JR,,,0.0,0.0,0,0,0,0,0,0,Aggressive Driving/Road Rage,Unspecified,,,,4692247,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,8:00,BRONX,10461.0,40.856594,-73.84036,"(40.856594, -73.84036)",,,1580      PELHAM PARKWAY SOUTH,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4692608,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,1:10,MANHATTAN,10012.0,40.726494,-74.00236,"(40.726494, -74.00236)",PRINCE STREET,SULLIVAN STREET,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4691916,Garbage or Refuse,,,,,2024
+2024-01-02,0:54,,,40.856743,-73.89527,"(40.856743, -73.89527)",WEBSTER AVENUE,,,8.0,0.0,0,0,0,0,8,0,Unspecified,Unspecified,Unspecified,,,4692308,Ambulance,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,2024
+2024-01-02,7:40,,,,,,MOSHOLU PARKWAY,,,0.0,0.0,0,0,0,0,0,0,Pavement Slippery,Pavement Slippery,,,,4692343,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,5:30,,,40.73594,-73.85887,"(40.73594, -73.85887)",99 STREET,LONG ISLAND EXPRESSWAY,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4692179,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,,2024
+2024-01-02,8:04,,,40.697407,-73.93601,"(40.697407, -73.93601)",BROADWAY,,,1.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692211,E-Bike,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,3:42,,,40.900925,-73.88852,"(40.900925, -73.88852)",HENRY HUDSON PARKWAY,,,1.0,0.0,0,0,0,0,1,0,Pavement Slippery,,,,,4692327,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,20:00,BROOKLYN,11201.0,40.69613,-73.987114,"(40.69613, -73.987114)",JAY STREET,TILLARY STREET,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692115,Sedan,Taxi,,,,2024
+2024-01-02,6:15,QUEENS,11373.0,40.736885,-73.87506,"(40.736885, -73.87506)",,,88-08     JUSTICE AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4691997,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,14:30,BROOKLYN,11230.0,40.612934,-73.97268,"(40.612934, -73.97268)",EAST 2 STREET,RYDER AVENUE,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692425,Sedan,,,,,2024
+2024-01-02,18:00,QUEENS,11385.0,40.712757,-73.90225,"(40.712757, -73.90225)",METROPOLITAN AVENUE,61 STREET,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4692159,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,1:06,QUEENS,11103.0,40.764267,-73.9158,"(40.764267, -73.9158)",38 STREET,30 AVENUE,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692150,Sedan,,,,,2024
+2024-01-02,21:11,QUEENS,11101.0,40.750565,-73.95227,"(40.750565, -73.95227)",VERNON BOULEVARD,44 AVENUE,,0.0,0.0,0,0,0,0,0,0,Obstruction/Debris,,,,,4692203,Pick-up Truck,,,,,2024
+2024-01-02,16:40,,,40.669044,-73.87578,"(40.669044, -73.87578)",DUMONT AVENUE,,,0.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Unspecified,,,,4692270,Sedan,E-Bike,,,,2024
+2024-01-02,8:40,BRONX,10473.0,40.82112,-73.848526,"(40.82112, -73.848526)",SEWARD AVENUE,CASTLE HILL AVENUE,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4692578,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,6:30,BROOKLYN,11224.0,40.57533,-73.99661,"(40.57533, -73.99661)",,,3001      MERMAID AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,,,,,4692296,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,15:20,BROOKLYN,11211.0,40.713036,-73.93616,"(40.713036, -73.93616)",,,966       GRAND STREET,1.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4692185,E-Scooter,,,,,2024
+2024-01-02,23:00,,,40.8285,-73.93779,"(40.8285, -73.93779)",WEST 154 STREET,,,0.0,0.0,0,0,0,0,0,0,Outside Car Distraction,Unspecified,,,,4692573,Sedan,Sedan,,,,2024
+2024-01-02,3:37,,,,,,CROSS ISLAND PARKWAY,HILLSIDE AVENUE,,0.0,0.0,0,0,0,0,0,0,Tire Failure/Inadequate,,,,,4692218,Sedan,,,,,2024
+2024-01-02,16:00,QUEENS,11433.0,40.703293,-73.7961,"(40.703293, -73.7961)",BREWER BOULEVARD,ARCHER AVENUE,,1.0,0.0,0,0,0,0,1,0,Unspecified,Unspecified,,,,4693329,Sedan,Motorscooter,,,,2024
+2024-01-02,10:50,QUEENS,11369.0,40.75937,-73.861275,"(40.75937, -73.861275)",,,32-19     108 STREET,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Turning Improperly,,,,4692888,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,6:40,BROOKLYN,11239.0,40.6476,-73.881485,"(40.6476, -73.881485)",PENNSYLVANIA AVENUE,SCHROEDERS AVENUE,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4693156,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,4:50,BROOKLYN,11208.0,40.670193,-73.878876,"(40.670193, -73.878876)",BLAKE AVENUE,BERRIMAN STREET,,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,Unspecified,,,4693183,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Sedan,,,2024
+2024-01-02,14:54,BRONX,10461.0,40.836166,-73.840225,"(40.836166, -73.840225)",,,1322      COMMERCE AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4693241,Sedan,,,,,2024
+2024-01-02,20:30,QUEENS,11106.0,40.764637,-73.93226,"(40.764637, -73.93226)",33 AVENUE,21 STREET,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4693310,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,15:00,MANHATTAN,10031.0,40.822643,-73.953224,"(40.822643, -73.953224)",BROADWAY,WEST 139 STREET,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4693074,Pick-up Truck,Van,,,,2024
+2024-01-02,3:01,QUEENS,11105.0,40.779728,-73.90631,"(40.779728, -73.90631)",20 AVENUE,31 STREET,,0.0,0.0,0,0,0,0,0,0,Illnes,Unspecified,Unspecified,,,4692977,Station Wagon/Sport Utility Vehicle,Pick-up Truck,Sedan,,,2024
+2024-01-02,7:30,MANHATTAN,10018.0,40.757145,-73.99357,"(40.757145, -73.99357)",WEST 40 STREET,9 AVENUE,,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,,,,,4693083,Box Truck,,,,,2024
+2024-01-02,19:01,MANHATTAN,10280.0,,,,BATTERY PLACE,3 PLACE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,Unspecified,Unspecified,,4693137,Sedan,Sedan,Sedan,Sedan,,2024
+2024-01-02,19:01,,,40.827812,-73.925934,"(40.827812, -73.925934)",EAST 161 STREET,,,0.0,0.0,0,0,0,0,0,0,Failure to Yield Right-of-Way,Unspecified,,,,4692989,Sedan,Sedan,,,,2024
+2024-01-02,18:11,BROOKLYN,11230.0,40.61256,-73.95709,"(40.61256, -73.95709)",,,1524      EAST 17 STREET,0.0,0.0,0,0,0,0,0,0,Aggressive Driving/Road Rage,Unspecified,,,,4693097,Sedan,Station Wagon/Sport Utility Vehicle,,,,2024
+2024-01-02,8:20,QUEENS,11432.0,40.70836,-73.78814,"(40.70836, -73.78814)",,,91-11     172 STREET,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,,,,,4693340,Sedan,,,,,2024
+2024-01-02,15:20,BRONX,10469.0,40.87134,-73.84793,"(40.87134, -73.84793)",EAST GUN HILL ROAD,YOUNG AVENUE,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4693265,Sedan,,,,,2024
+2024-01-02,20:10,BROOKLYN,11234.0,40.62973,-73.922226,"(40.62973, -73.922226)",FLATLANDS AVENUE,EAST 56 STREET,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4692883,Sedan,,,,,2024
+2024-01-02,8:39,,,40.689137,-73.990715,"(40.689137, -73.990715)",,,BOERUM PLACE,1.0,0.0,1,0,0,0,0,0,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,,,,,4693197,Taxi,,,,,2024
+2024-01-02,7:30,BROOKLYN,11213.0,40.673798,-73.92406,"(40.673798, -73.92406)",,,1299      SAINT MARKS AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692868,Sedan,,,,,2024
+2024-01-02,4:27,,,40.856625,-73.93936,"(40.856625, -73.93936)",HENRY HUDSON PARKWAY,,,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,,,,,4693151,Sedan,,,,,2024
+2024-01-02,13:45,BROOKLYN,11207.0,40.675625,-73.89879,"(40.675625, -73.89879)",ATLANTIC AVENUE,GEORGIA AVENUE,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4693164,Sedan,,,,,2024
+2024-01-02,15:25,MANHATTAN,10128.0,40.78069,-73.9466,"(40.78069, -73.9466)",1 AVENUE,EAST 92 STREET,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4693357,E-Bike,,,,,2024
+2024-01-02,13:27,,,,,,VERRAZANO BRIDGE LOWER,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4693009,Station Wagon/Sport Utility Vehicle,PICK UP,,,,2024
+2024-01-02,15:45,QUEENS,11372.0,40.755264,-73.88817,"(40.755264, -73.88817)",79 STREET,NORTHERN BOULEVARD,,0.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4693028,Station Wagon/Sport Utility Vehicle,Carry All,,,,2024
+2024-01-02,18:12,BROOKLYN,11210.0,40.621887,-73.946976,"(40.621887, -73.946976)",AVENUE L,EAST 29 STREET,,1.0,0.0,1,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4693133,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,6:45,MANHATTAN,10036.0,40.75484,-73.98412,"(40.75484, -73.98412)",AVENUE OF THE AMERICAS,WEST 42 STREET,,1.0,0.0,1,0,0,0,0,0,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,,,,,4693093,ONE WHEEL,,,,,2024
+2024-01-02,15:34,QUEENS,11412.0,40.690212,-73.76338,"(40.690212, -73.76338)",BAISLEY BOULEVARD,LOVINGHAM PLACE,,3.0,0.0,0,0,0,0,3,0,Illnes,Unspecified,Unspecified,,,4692951,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Sedan,,,2024
+2024-01-02,22:00,BRONX,10472.0,40.829685,-73.87393,"(40.829685, -73.87393)",,,1636      WESTCHESTER AVENUE,0.0,0.0,0,0,0,0,0,0,Unspecified,Unspecified,,,,4692800,Sedan,,,,,2024
+2024-01-02,13:30,BROOKLYN,11203.0,40.651375,-73.93809,"(40.651375, -73.93809)",CHURCH AVENUE,EAST 42 STREET,,1.0,0.0,1,0,0,0,0,0,Failure to Yield Right-of-Way,,,,,4693431,Sedan,,,,,2024
+2024-01-02,8:00,BRONX,10459.0,40.823936,-73.89488,"(40.823936, -73.89488)",EAST 165 STREET,TIFFANY STREET,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4693467,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:00,QUEENS,11372.0,40.753174,-73.87243,"(40.753174, -73.87243)",,,95-12     35 AVENUE,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4693433,Sedan,,,,,2024
+2024-01-02,15:45,,,,,,WEST SHORE EXPRESSWAY,,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unspecified,,,,4693440,Station Wagon/Sport Utility Vehicle,Pick-up Truck,,,,2024
+2024-01-02,11:12,MANHATTAN,10035.0,40.799297,-73.94113,"(40.799297, -73.94113)",EAST 117 STREET,LEXINGTON AVENUE,,1.0,0.0,0,0,1,0,0,0,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,,,,4693483,Bike,,,,,2024
+2024-01-02,12:30,,,40.715076,-73.95189,"(40.715076, -73.95189)",BROOKLYN QUEENS EXPRESSWAY,,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unspecified,,,,4693755,Sedan,Sedan,,,,2024
+2024-01-02,11:20,QUEENS,11432.0,40.70742,-73.79716,"(40.70742, -73.79716)",164 STREET,89 AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4693782,Sedan,Sedan,,,,2024
+2024-01-02,14:59,,,40.67058,-73.93096,"(40.67058, -73.93096)",SAINT JOHNS PLACE,,,0.0,0.0,0,0,0,0,0,0,Passing or Lane Usage Improper,Unspecified,,,,4693771,Box Truck,Sedan,,,,2024
+2024-01-02,10:05,MANHATTAN,10029.0,40.79157,-73.94469,"(40.79157, -73.94469)",EAST 106 STREET,3 AVENUE,,0.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4693687,Bike,,,,,2024
+2024-01-02,11:00,,,40.695614,-73.94056,"(40.695614, -73.94056)",VERNON AVENUE,,,0.0,0.0,0,0,0,0,0,0,Driver Inexperience,Unspecified,,,,4693767,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,9:00,MANHATTAN,10012.0,40.726116,-74.0016,"(40.726116, -74.0016)",THOMPSON STREET,PRINCE STREET,,0.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4693762,Station Wagon/Sport Utility Vehicle,Trailer,,,,2024
+2024-01-02,15:10,,,,,,QUEENS MIDTOWN TUNNEL,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,Unspecified,,,4693927,Sedan,Station Wagon/Sport Utility Vehicle,Bus,,,2024
+2024-01-02,9:15,QUEENS,11385.0,40.70052,-73.89797,"(40.70052, -73.89797)",MYRTLE AVENUE,NORMAN STREET,,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4694013,FIRE TRUCK,Box Truck,,,,2024
+2024-01-02,9:45,MANHATTAN,10026.0,40.802612,-73.94897,"(40.802612, -73.94897)",,,41        WEST 117 STREET,0.0,0.0,0,0,0,0,0,0,Other Vehicular,Driver Inattention/Distraction,,,,4694018,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,17:05,MANHATTAN,10022.0,40.758274,-73.97106,"(40.758274, -73.97106)",,,599       LEXINGTON AVENUE,1.0,0.0,0,0,0,0,1,0,Driver Inattention/Distraction,Unspecified,,,,4694129,Station Wagon/Sport Utility Vehicle,Taxi,,,,2024
+2024-01-02,13:51,QUEENS,11385.0,40.698578,-73.893036,"(40.698578, -73.893036)",,,75-12     62 STREET,0.0,0.0,0,0,0,0,0,0,Passing Too Closely,Unspecified,,,,4694101,Pallet,Sedan,,,,2024
+2024-01-02,15:15,,,40.79611,-73.96145,"(40.79611, -73.96145)",CENTRAL PARK WEST,,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4694196,Bus,,,,,2024
+2024-01-02,18:30,MANHATTAN,10026.0,40.804333,-73.95305,"(40.804333, -73.95305)",,,211       WEST 117 STREET,0.0,0.0,0,0,0,0,0,0,Other Vehicular,Driver Inattention/Distraction,,,,4694158,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,10:29,MANHATTAN,10024.0,40.78452,-73.97948,"(40.78452, -73.97948)",WEST 80 STREET,BROADWAY,,1.0,0.0,1,0,0,0,0,0,Unspecified,,,,,4693534,Carry All,,,,,2024
+2024-01-02,12:00,BRONX,10454.0,40.806263,-73.92018,"(40.806263, -73.92018)",BROOK AVENUE,EAST 136 STREET,,0.0,0.0,0,0,0,0,0,0,Unspecified,,,,,4695124,Sedan,,,,,2024
+2024-01-02,9:00,,,40.690594,-73.95162,"(40.690594, -73.95162)",KOSCIUSZKO STREET,,,0.0,0.0,0,0,0,0,0,0,Following Too Closely,Unspecified,,,,4694881,Sedan,,,,,2024
+2024-01-02,13:00,,,,,,WEST 110 STREET,CENTRAL PARK WEST,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4695192,Station Wagon/Sport Utility Vehicle,Motorcycle,,,,2024
+2024-01-02,13:00,,,40.771374,-73.877144,"(40.771374, -73.877144)",GRAND CENTRAL PKWY,,,0.0,0.0,0,0,0,0,0,0,Unsafe Speed,Unspecified,,,,4695455,Station Wagon/Sport Utility Vehicle,,,,,2024
+2024-01-02,7:00,,,,,,MOSHOLU PARKWAY,,,2.0,0.0,0,0,0,0,2,0,Pavement Slippery,Pavement Slippery,Pavement Slippery,Pavement Slippery,,4695983,Sedan,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,Station Wagon/Sport Utility Vehicle,,2024
+2024-01-02,10:06,,,40.646515,-73.974655,"(40.646515, -73.974655)",PROSPECT EXPRESSWAY EAST,,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unsafe Speed,,,,4693040,Sedan,Sedan,,,,2024
+2024-01-02,19:47,BROOKLYN,11203.0,40.641422,-73.94086,"(40.641422, -73.94086)",EAST 38 STREET,AVENUE D,,2.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4698412,Sedan,E-Scooter,,,,2024
+2024-01-02,0:05,BRONX,10458.0,40.872494,-73.88147,"(40.872494, -73.88147)",MOSHOLU PARKWAY,BAINBRIDGE AVENUE,,0.0,1.0,0,0,0,0,0,1,Traffic Control Disregarded,Unspecified,,,,4692380,Motorscooter,,,,,2024
+2024-01-02,22:30,MANHATTAN,10019.0,40.76177,-73.979065,"(40.76177, -73.979065)",WEST 53 STREET,AVENUE OF THE AMERICAS,,0.0,0.0,0,0,0,0,0,0,Turning Improperly,Unspecified,,,,4692291,Station Wagon/Sport Utility Vehicle,Sedan,,,,2024
+2024-01-02,8:30,BROOKLYN,11237.0,40.6967,-73.91031,"(40.6967, -73.91031)",PUTNAM AVENUE,IRVING AVENUE,,0.0,0.0,0,0,0,0,0,0,Driver Inattention/Distraction,Unspecified,,,,4700710,Sedan,Carry All,,,,2024
+2024-01-02,23:00,,,40.651974,-73.86542,"(40.651974, -73.86542)",BELT PARKWAY,,,1.0,0.0,0,0,0,0,1,0,Following Too Closely,Unspecified,Unspecified,Unspecified,,4695334,Sedan,Sedan,Station Wagon/Sport Utility Vehicle,Sedan,,2024

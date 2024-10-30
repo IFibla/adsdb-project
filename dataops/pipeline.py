@@ -1,3 +1,4 @@
+import os
 import src
 from src.helpers import DBConnector
 from src.helpers import LogDBConnector  # Import the new LogDBConnector
@@ -8,9 +9,11 @@ class Pipeline:
         self,
         temporal_folder: str = r"data\landing\temporal",
         persistent_folder: str = r"data\landing\persistent",
+        connector_folder: str = r"data",
     ):
         self.temporal_folder = temporal_folder
         self.persistent_folder = persistent_folder
+        self.connector_folder = connector_folder
 
         self._load_connectors()
 
@@ -33,10 +36,15 @@ class Pipeline:
 
     def _load_connectors(self) -> None:
         self.connectors = {
-            "landing_connector": DBConnector(),
-            "formatted_connector": DBConnector(),
-            "trusted_connector": DBConnector(),
-            "exploitation_connector": DBConnector(),
+            "formatted_connector": DBConnector(
+                db_path=os.path.join(self.connector_folder, "formatted.duckdb")
+            ),
+            "trusted_connector": DBConnector(
+                db_path=os.path.join(self.connector_folder, "trusted.duckdb")
+            ),
+            "exploitation_connector": DBConnector(
+                db_path=os.path.join(self.connector_folder, "exploitation.duckdb")
+            ),
         }
 
     def _landing_constructor_args(self, cls):

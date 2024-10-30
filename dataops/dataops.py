@@ -13,15 +13,18 @@ class DataOps:
         self,
         temporal_folder: str = r"data\landing\temporal",
         persistent_folder: str = r"data\landing\persistent",
+        connector_folder: str = r"data",
     ):
         self._monitoring = Monitoring(interval=5)
-        self.temporal_folder = temporal_folder
-        self.persistent_folder = persistent_folder
+        self.temporal_folder = os.path.abspath(temporal_folder)
+        self.persistent_folder = os.path.abspath(persistent_folder)
+        self.connector_folder = os.path.abspath(connector_folder)
 
         # Initialize the pipeline
         self.pipeline = Pipeline(
             temporal_folder=self.temporal_folder,
             persistent_folder=self.persistent_folder,
+            connector_folder=self.connector_folder,
         )
 
         # Initialize the LogDBConnector
