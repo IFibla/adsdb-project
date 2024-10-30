@@ -105,4 +105,3 @@ class DataOps:
                 print(f"Failed to download from {url}: {e}")
 
         self._monitoring.stop_monitoring()
-
