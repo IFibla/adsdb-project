@@ -19,8 +19,8 @@ class Pipeline:
 
         self.stages = {
             "landing": self.landing_phase,
-            "trusted": self.trusted_phase,
             "formatted": self.formatted_phase,
+            "trusted": self.trusted_phase,
             "exploitation": self.exploitation_phase,
         }
 
@@ -34,8 +34,8 @@ class Pipeline:
     def _load_connectors(self) -> None:
         self.connectors = {
             "landing_connector": DBConnector(),
-            "trusted_connector": DBConnector(),
             "formatted_connector": DBConnector(),
+            "trusted_connector": DBConnector(),
             "exploitation_connector": DBConnector(),
         }
 

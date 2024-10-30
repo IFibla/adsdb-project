@@ -1,6 +1,11 @@
-from .pipeline import Pipeline
+import os
+
+import requests
+from tqdm import tqdm
+
 from src.helpers.log_connector import LogDBConnector
 from src.helpers.monitor import Monitoring
+from .pipeline import Pipeline
 
 
 class DataOps:
@@ -55,8 +60,49 @@ class DataOps:
             print("No execution logs found.")
         return logs
 
-    def download_last_datasources(self, destination_dir: str = r"data\downloads"):
+    def download_last_datasources(self):
         """
-        Downloads the last data sources from the persistent folder to the specified destination.
+        Downloads the last data sources to the temporal folder.
         """
-        pass
+        urls = [
+            "https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.csv?date=20241030&accessType=DOWNLOAD",
+            "https://data.cityofnewyork.us/api/views/bm4k-52h4/rows.csv?date=20241030&accessType=DOWNLOAD",
+            "https://data.cityofnewyork.us/api/views/f55k-p6yu/rows.csv?date=20241030&accessType=DOWNLOAD",
+        ]
+
+        os.makedirs(self.temporal_folder, exist_ok=True)
+
+        self._monitoring.start_monitoring()
+
+        for url in urls:
+            try:
+                print(f"Starting download from {url}...")
+                response = requests.get(url, stream=True)
+                response.raise_for_status()
+
+                content_disposition = response.headers.get("Content-Disposition")
+                if content_disposition:
+                    file_name = content_disposition.split("filename=")[-1].strip('";')
+                else:
+                    file_name = url.split("/")[-2] + ".csv"
+
+                file_path = os.path.join(self.temporal_folder, file_name)
+                total_size = int(response.headers.get("content-length", 0))
+
+                with open(file_path, "wb") as file, tqdm(
+                    desc=file_name,
+                    total=total_size,
+                    unit="B",
+                    unit_scale=True,
+                    unit_divisor=1024,
+                ) as progress_bar:
+                    for chunk in response.iter_content(chunk_size=1024):
+                        file.write(chunk)
+                        progress_bar.update(len(chunk))
+
+                print(f"Downloaded and saved as {file_name} in {self.temporal_folder}")
+            except requests.RequestException as e:
+                print(f"Failed to download from {url}: {e}")
+
+        self._monitoring.stop_monitoring()
+
