@@ -27,11 +27,11 @@ class DBConnector:
             query (str): The SQL query to be executed.
 
         Returns:
-            list: Dictionary returned from the executed query
+            list: Results returned from the executed query
         """
         try:
-            self.connection.execute(query)
-            return self.connection.fetchall()
+            result = self.connection.execute(query).fetchall()
+            return result
         except Exception as e:
             print(f"Error executing query: {e}")
             return []
@@ -42,15 +42,18 @@ class DBConnector:
 
         Args:
             table_name (str): The name of the table where the data will be inserted.
-            data (pd.Dataframe): The data to be inserted. Can be a pandas DataFrame or other compatible format.
+            data (pd.DataFrame): The data to be inserted. Must be a pandas DataFrame.
         """
         if not isinstance(data, pd.DataFrame):
             raise TypeError("Data must be a pandas DataFrame")
         try:
-            self.connection.register("data", data)
+            self.connection.register("data_df", data)
             self.connection.execute(
-                f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data"
+                f"CREATE TABLE IF NOT EXISTS {table_name} AS SELECT * FROM data_df"
             )
+            # If table exists, append data
+            self.connection.execute(f"INSERT INTO {table_name} SELECT * FROM data_df")
+            self.connection.unregister("data_df")
         except Exception as e:
             print(f"Error inserting data: {e}")
 
@@ -63,11 +66,11 @@ class DBConnector:
             print(f"Error checking if table exists: {e}")
             return False
 
-    def get_tables(self) -> list[str]:
+    def get_tables(self) -> list:
         try:
-            query = f"SELECT table_name FROM information_schema.tables"
-            self.connection.execute(query)
-            return list(map(lambda x: x[0], self.connection.fetchall()))
+            query = "SELECT table_name FROM information_schema.tables"
+            result = self.connection.execute(query).fetchall()
+            return [row[0] for row in result]
         except Exception as e:
             print(f"Error returning all tables: {e}")
             return []
