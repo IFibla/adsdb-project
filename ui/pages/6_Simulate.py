@@ -22,6 +22,10 @@ dataops = DataOps(
 
 st.title("Simulation")
 
+st.warning(
+    "As we are working with sample dataset is is normal to find null values in layers like Trusted or Exploitation."
+)
+
 st.markdown(
     """
 This page enables the execution of the entire data backbone pipeline, with four dedicated buttons—Landing, Formatted, 
