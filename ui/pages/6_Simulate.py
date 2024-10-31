@@ -21,6 +21,19 @@ dataops = DataOps(
 )
 
 st.title("Simulation")
+
+st.markdown(
+    """
+This page enables the execution of the entire data backbone pipeline, with four dedicated buttons—Landing, Formatted, 
+Trusted, and Exploitation—each responsible for processing a specific layer. Clicking on **Landing** organizes and moves 
+datasets from a temporary area to a persistent landing, where results can be viewed in specific folders. Since files 
+are removed from the temporary landing, it’s recommended to copy them to another location for experiment reproduction. 
+The **Formatted** button prepares and standardizes data, **Trusted** applies quality checks for reliability, and 
+**Exploitation** finalizes the data for end use. Additionally, a database selector allows users to navigate different 
+databases, viewing tables and data across each layer of the pipeline, offering a streamlined, step-by-step approach to 
+data management."""
+)
+
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
