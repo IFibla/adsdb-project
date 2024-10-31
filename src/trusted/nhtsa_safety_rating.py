@@ -31,6 +31,7 @@ class NHTSASafetyRatingTrusted(Trusted):
 
     def _format_data(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.set_index("vehicle_id", drop=True)
+        df["make"] = df["make"].apply(lambda x: x.lower())
         return df
 
     def _remove_additional_ratings(self, df: pd.DataFrame) -> pd.DataFrame:

@@ -10,9 +10,9 @@ from dataops import DataOps
 
 if "landing" not in st.session_state:
     st.session_state["landing"] = False
-    st.session_state["formatted"] = False
-    st.session_state["trusted"] = False
-    st.session_state["exploitation"] = False
+    st.session_state["formatted"] = True
+    st.session_state["trusted"] = True
+    st.session_state["exploitation"] = True
 
 dataops = DataOps(
     temporal_folder="./simulation/landing/temporal/",
@@ -29,8 +29,10 @@ with col1:
         use_container_width=True,
         disabled=st.session_state["landing"],
     ):
-        dataops.execute_stage("landing")
+        with st.spinner("Computing Landing..."):
+            dataops.execute_stage("landing")
         st.session_state["landing"] = True
+        st.session_state["formatted"] = False
 
 
 with col2:
@@ -39,8 +41,10 @@ with col2:
         use_container_width=True,
         disabled=st.session_state["formatted"],
     ):
-        dataops.execute_stage("formatted")
+        with st.spinner("Computing Formatted..."):
+            dataops.execute_stage("formatted")
         st.session_state["formatted"] = True
+        st.session_state["trusted"] = False
 
 with col3:
     if st.button(
@@ -48,8 +52,10 @@ with col3:
         use_container_width=True,
         disabled=st.session_state["trusted"],
     ):
-        dataops.execute_stage("trusted")
+        with st.spinner("Computing Trusted..."):
+            dataops.execute_stage("trusted")
         st.session_state["trusted"] = True
+        st.session_state["exploitation"] = False
 
 with col4:
     if st.button(
@@ -57,7 +63,8 @@ with col4:
         use_container_width=True,
         disabled=st.session_state["exploitation"],
     ):
-        dataops.execute_stage("exploitation")
+        with st.spinner("Computing Exploitation..."):
+            dataops.execute_stage("exploitation")
         st.session_state["exploitation"] = True
 
 layer = st.radio(

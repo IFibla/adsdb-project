@@ -1,13 +1,7 @@
 import streamlit as st
+import pandas as pd
 import sys
 import os
-
-current_script_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_script_dir, "..", ".."))
-sys.path.insert(0, project_root)
-from src.helpers.db_connector import DBConnector
-
-trusted_db_connector = DBConnector("../data/db_trusted.duckdb")
 
 st.title("Trusted")
 
@@ -43,27 +37,25 @@ data quality standards in complex data environments.
 st.write("# Motor Vehicle Collisions")
 
 with st.expander("Motor Vehicle Collisions Crash"):
-    st.dataframe(trusted_db_connector.get_table_as_dataframe("mvc_crash", limit=10))
+    st.dataframe(pd.read_csv("./sample_tables/mvc_crash.csv", index_col=9))
     p = open("./profilings/mvc_crash.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 with st.expander("Motor Vehicle Collisions Person"):
-    st.dataframe(trusted_db_connector.get_table_as_dataframe("mvc_person", limit=10))
+    st.dataframe(pd.read_csv("./sample_tables/mvc_person.csv", index_col=1))
     p = open("./profilings/mvc_person.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 with st.expander("Motor Vehicle Collisions Vehicles"):
-    st.dataframe(trusted_db_connector.get_table_as_dataframe("mvc_vehicles", limit=10))
+    st.dataframe(pd.read_csv("./sample_tables/mvc_vehicles.csv", index_col=1))
     p = open("./profilings/mvc_vehicles.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 st.write("## National Highway Traffic Safety Administration")
 with st.expander("Vehicle Safety Rating"):
-    st.dataframe(
-        trusted_db_connector.get_table_as_dataframe("nhtsa_safety_rating", limit=10)
-    )
+    st.dataframe(pd.read_csv("./sample_tables/nhtsa_safety_rating.csv"))
     p = open("./profilings/nhtsa_safety_rating.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
