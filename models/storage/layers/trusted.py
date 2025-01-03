@@ -1,5 +1,5 @@
+from src.helpers.data_profiler import DataProfiler
 from src.helpers.db_connector import DBConnector
-from ydata_profiling import ProfileReport
 from models.storage.layer import Layer
 from abc import abstractmethod
 
@@ -155,6 +155,5 @@ class Trusted(Layer):
         df = self.formatted_db_connector.get_table_as_dataframe(
             self._get_trusted_table_name()
         )
-        ProfileReport(
-            df, title=f"Profile Report from {self._get_trusted_table_name()}"
-        ).to_file(export_path, silent=True)
+        profile = DataProfiler(df)
+        profile.generate_report(export_path)

@@ -1,5 +1,5 @@
+from src.helpers.data_profiler import DataProfiler
 from src.helpers.db_connector import DBConnector
-from ydata_profiling import ProfileReport
 from models.storage.layer import Layer
 from abc import abstractmethod
 import pandas as pd
@@ -78,5 +78,5 @@ class Formatted(Layer):
             export_path (str): Path where the profiling report will be saved.
         """
         df = self.formatted_db_connector.read_data(table_name)
-        profile = ProfileReport(df)
-        profile.to_file(export_path)
+        profile = DataProfiler(df)
+        profile.generate_report(export_path)

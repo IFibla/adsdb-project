@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 import torch.nn as nn
 from sklearn.preprocessing import LabelEncoder
+import numpy as np
 
 
 class CarMakeEmbedding:
@@ -10,14 +11,13 @@ class CarMakeEmbedding:
         self, csv_path=None, label_encoder=None, pkl_path=None, embedding_size=10
     ):
         if label_encoder and pkl_path:
-            self.label_encoder = label_encoder
+            with open(label_encoder, "rb") as f:
+                self.label_encoder = pickle.load(f)
             self.num_makes = len(self.label_encoder.classes_)
-            with open(pkl_path, "rb") as f:
-                state_dict = pickle.load(f)
             self.embedding = nn.Embedding(
                 num_embeddings=self.num_makes, embedding_dim=embedding_size
             )
-            self.embedding.load_state_dict(state_dict)
+            self.embedding.load_state_dict(torch.load(pkl_path))
         elif csv_path:
             self.csv_path = csv_path
             self.embedding_size = embedding_size
@@ -31,6 +31,12 @@ class CarMakeEmbedding:
         make_encoded = self.label_encoder.transform([make_str])
         make_tensor = torch.tensor(make_encoded, dtype=torch.long)
         return self.embedding(make_tensor).detach().cpu().numpy()
+
+    def reverse_execute(self, embedding):
+        all_embeddings = self.embedding.weight.detach().cpu().numpy()
+        differences = np.linalg.norm(all_embeddings - embedding, axis=1)
+        closest_index = np.argmin(differences)
+        return self.label_encoder.inverse_transform([closest_index])[0]
 
     def _train(self):
         self.data_make = pd.read_csv(self.csv_path)["Make"]
