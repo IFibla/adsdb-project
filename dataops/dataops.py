@@ -49,7 +49,7 @@ class DataOps:
 
     def get_execution_logs(self):
         """
-        Retrieves execution logs for all layers.
+        Retrieves execution logs for all storage.
         """
         logs = self.log_connector.get_all_layer_statuses()
         if logs:

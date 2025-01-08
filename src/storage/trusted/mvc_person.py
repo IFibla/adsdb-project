@@ -3,7 +3,7 @@ from datetime import datetime
 import pandas as pd
 from sklearn.impute import KNNImputer
 
-from models.storage.layers.trusted import Trusted
+from models.layers.storage.trusted import Trusted
 
 
 class MVCPersonTrusted(Trusted):

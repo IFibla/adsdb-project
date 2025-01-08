@@ -38,9 +38,9 @@ st.image("./classDiagram.png", caption="Class Diagram")
 
 st.markdown(
     """    
-Finally, the upper diagram shows a structured data processing system is presented. It contains distinct layers for handling data storage, 
+Finally, the upper diagram shows a structured data processing system is presented. It contains distinct storage for handling data storage, 
 transformation, and exploitation. The `Layer` base class provides a generic `execute` method, while `Trusted`, 
-`Formatted`, and `Exploitation` layers extend its functionality for specific tasks. The `Trusted` layer includes 
+`Formatted`, and `Exploitation` storage extend its functionality for specific tasks. The `Trusted` layer includes 
 extensive data cleaning and transformation methods, the `Formatted` layer focuses on file handling, and the 
 `Exploitation` layer enables data aggregation and joins for analysis. Specific data sources and formats, like CSV 
 and JSON, have specialized classes under the `Formatted` layer, while `Trusted` classes manage detailed data 

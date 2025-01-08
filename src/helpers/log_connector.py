@@ -56,7 +56,7 @@ class LogDBConnector(DBConnector):
 
     def get_all_layer_statuses(self) -> List[tuple]:
         """
-        Retrieves the execution status of all layers.
+        Retrieves the execution status of all storage.
         """
         query = "SELECT * FROM execution_log"
         return self.execute_query(query)

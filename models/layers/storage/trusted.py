@@ -1,6 +1,6 @@
 from src.helpers.data_profiler import DataProfiler
 from src.helpers.db_connector import DBConnector
-from models.storage.layer import Layer
+from models.layers.layer import Layer
 from abc import abstractmethod
 
 import pandas as pd
