@@ -34,7 +34,7 @@ data quality standards in complex data environments.
 )
 
 
-st.write("# Motor Vehicle Collisions")
+st.write("## Motor Vehicle Collisions")
 
 with st.expander("Motor Vehicle Collisions Crash"):
     st.dataframe(pd.read_csv("./sample_tables/mvc_crash.csv", index_col=9))

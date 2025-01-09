@@ -4,8 +4,8 @@ from src.storage.landing import *
 from src.storage.trusted import *
 
 __all__ = [
-    *exploitation.__all__,
-    *formatted.__all__,
-    *trusted.__all__,
-    *landing.__all__,
+    *storage.exploitation.__all__,
+    *storage.formatted.__all__,
+    *storage.trusted.__all__,
+    *storage.landing.__all__,
 ]
