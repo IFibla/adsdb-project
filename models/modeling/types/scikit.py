@@ -28,20 +28,9 @@ class SciKitModel(Model, ABC):
     def predict(self, X_test):
         return self.model.predict(X_test)
 
-    def get_metrics(self, y_test, y_pred):
-        accuracy = accuracy_score(y_test, y_pred)
-        precision = precision_score(y_test, y_pred, average="binary", zero_division=0)
-        recall = recall_score(y_test, y_pred, average="binary", zero_division=0)
-        f1 = f1_score(y_test, y_pred, average="binary", zero_division=0)
-        cm = confusion_matrix(y_test, y_pred)
-
-        return {
-            "Accuracy": accuracy,
-            "Precision": precision,
-            "Recall": recall,
-            "F1 Score": f1,
-            "Confusion Matrix": cm,
-        }
+    @abstractmethod
+    def get_metrics(self, y_test, y_pred)-> dict:
+        pass
 
     def save(self, path: str):
         if self.model is None:
