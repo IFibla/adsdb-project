@@ -1,7 +1,7 @@
-from src.storage.exploitation import *
-from src.storage.formatted import *
-from src.storage.landing import *
-from src.storage.trusted import *
+from src.storage import exploitation
+from src.storage import formatted
+from src.storage import landing
+from src.storage import trusted
 
 __all__ = [
     *exploitation.__all__,

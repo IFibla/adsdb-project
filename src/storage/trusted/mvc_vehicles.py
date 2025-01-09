@@ -12,7 +12,7 @@ class MVCVehiclesTrusted(Trusted):
         return [
             t
             for t in super()._list_tables()
-            if t.startswith("motorvehiclecollisions_vehicles")
+            if t.startswith("motorvehiclecollisionsvehicles")
         ]
 
     def _clean_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
