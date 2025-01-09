@@ -1,4 +1,4 @@
-from models.storage.layers.trusted import Trusted
+from models.layers.storage.trusted import Trusted
 from rapidfuzz import process, fuzz
 import pandas as pd
 import numpy as np

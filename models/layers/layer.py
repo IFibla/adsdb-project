@@ -6,7 +6,7 @@ from pandas import DataFrame
 class Layer(ABC):
     """
     Abstract base class representing a data layer in a data ingestion pipeline.
-    This class serves as a blueprint for creating specific types of layers that interact with data sources.
+    This class serves as a blueprint for creating specific types of storage that interact with data sources.
     """
 
     @abstractmethod

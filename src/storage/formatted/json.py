@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 
-from models.storage.layers.formatted import Formatted
+from models.layers.storage.formatted import Formatted
 
 
 class JSONFormatted(Formatted):

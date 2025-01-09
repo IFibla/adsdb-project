@@ -106,7 +106,7 @@ class Pipeline:
         self._execute_phase("exploitation", src.exploitation, "exploitation_connector")
 
     def execute_stage(self, stage_name):
-        """Executes a specific phase if it exists in the defined layers"""
+        """Executes a specific phase if it exists in the defined storage"""
         if stage_name in self.stages:
             self.stages[stage_name]()
         else:

@@ -2,7 +2,7 @@ import re
 
 import pandas as pd
 
-from models.storage.layers.trusted import Trusted
+from models.layers.storage.trusted import Trusted
 
 
 class NHTSASafetyRatingTrusted(Trusted):
