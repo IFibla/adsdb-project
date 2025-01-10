@@ -115,12 +115,12 @@ embedding = cme.execute(make).tolist()
 df = pd.DataFrame(
     [embedding[0] + [year]], columns=[f"make_{i}" for i in range(10)] + ["vehicle_age"]
 )
-prediction = brand_model.predict(df)
+prediction = brand_model.predict(df)[0]
 
 st_star_rating(
     label="Model prediction",
     maxValue=5,
-    defaultValue=prediction,
+    defaultValue=int(prediction),
     read_only=True,
 )
 
