@@ -26,3 +26,9 @@ st.markdown(
 
 
 st.write("## Safety Rating by Accidents")
+
+st.markdown(
+    "For the analytical sandbox of the accident rating model, no additional modifications are required. "
+    "Therefore, data will be directly copied from the exploitation zone to the analytical sandbox database "
+    "without further processing."
+)

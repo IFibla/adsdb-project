@@ -1,3 +1,4 @@
+from sklearn.experimental import enable_iterative_imputer
 import streamlit as st
 import sys
 import os
@@ -13,11 +14,16 @@ if "landing" not in st.session_state:
     st.session_state["formatted"] = True
     st.session_state["trusted"] = True
     st.session_state["exploitation"] = True
+    st.session_state["sandbox"] = True
+    st.session_state["feature"] = True
+    st.session_state["train"] = True
+    st.session_state["validate"] = True
+    st.session_state["validation_result"] = None
 
 dataops = DataOps(
-    temporal_folder="./simulation/landing/temporal/",
-    persistent_folder="./simulation/landing/persistent/",
-    connector_folder="./simulation/",
+    temporal_folder="ui/simulation/landing/temporal/",
+    persistent_folder="ui/simulation/landing/persistent/",
+    connector_folder="ui/simulation/",
 )
 
 st.title("Simulation")
@@ -83,21 +89,80 @@ with col4:
         with st.spinner("Computing Exploitation..."):
             dataops.execute_stage("exploitation")
         st.session_state["exploitation"] = True
+        st.session_state["sandbox"] = False
+
+col11, col12, col13, col14 = st.columns(4)
+
+with col11:
+    if st.button(
+        "Execute Analytical Sandbox",
+        use_container_width=True,
+        disabled=st.session_state["sandbox"],
+    ):
+        with st.spinner("Computing Analytical Sandbox..."):
+            dataops.execute_stage("analytical_sandbox")
+        st.session_state["sandbox"] = True
+        st.session_state["feature"] = False
+
+
+with col12:
+    if st.button(
+        "Execute Feature Engineering",
+        use_container_width=True,
+        disabled=st.session_state["feature"],
+    ):
+        with st.spinner("Computing Feature Engineering..."):
+            dataops.execute_stage("feature_engineering")
+        st.session_state["feature"] = True
+        st.session_state["train"] = False
+
+with col13:
+    if st.button(
+        "Execute Model Training",
+        use_container_width=True,
+        disabled=st.session_state["train"],
+    ):
+        with st.spinner("Computing model training..."):
+            dataops.execute_stage("training")
+        st.session_state["train"] = True
+        st.session_state["validate"] = False
+
+with col14:
+    if st.button(
+        "Execute Model Validation",
+        use_container_width=True,
+        disabled=st.session_state["validate"],
+    ):
+        with st.spinner("Computing model validation..."):
+            st.session_state["validation_result"] = dataops.execute_stage("validation")
+            print(st.session_state["validation_result"])
+        st.session_state["validate"] = True
 
 layer = st.radio(
     "Layer Database chooser.",
-    ["Formatted", "Trusted", "Exploitation"],
+    [
+        "Formatted",
+        "Trusted",
+        "Exploitation",
+        "Analytical Sandbox",
+        "Feature Engineering",
+    ],
     horizontal=True,
 )
 table = st.radio(
     "Tables.",
-    dataops.pipeline.connectors[f"{layer.lower()}_connector"].get_tables(),
+    dataops.pipeline.connectors[
+        f"{layer.lower().replace(' ', '_')}_connector"
+    ].get_tables(),
     horizontal=True,
 )
 
 if table is not None:
     st.dataframe(
         dataops.pipeline.connectors[
-            f"{layer.lower()}_connector"
+            f"{layer.lower().replace(' ', '_')}_connector"
         ].get_table_as_dataframe(table, limit=20)
     )
+
+if st.session_state["validation_result"] is not None:
+    st.json(st.session_state["validation_result"])

@@ -18,7 +18,7 @@ goes from obtaining the raw datasets, to the exploitation zone showing crossed r
 """
 )
 
-st.image("./dataBackbone.png", caption="Data Backbone")
+st.image("ui/dataBackbone.png", caption="Data Backbone")
 
 st.markdown(
     """
@@ -34,7 +34,7 @@ response to the questions formulated at the beginning of the project.
 """
 )
 
-st.image("./classDiagram.png", caption="Class Diagram")
+st.image("ui/classDiagram.png", caption="Class Diagram")
 
 st.markdown(
     """    

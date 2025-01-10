@@ -4,8 +4,12 @@ from models.layers.analytics.model_predictor import ModelPredictorLayer
 from models.layers.analytics.model_training import ModelTrainingLayer
 from models.layers.analytics.model_validator import ModelValidatorLayer
 from src.analytics.feature_engineering import BrandsFeatureEngineering
-from src.analytics.models.factories.accident_rating_model_factory import AccidentRatingModelFactory
-from src.analytics.models.factories.brand_rating_model_factory import BrandRatingModelFactory
+from src.analytics.models.factories.accident_rating_model_factory import (
+    AccidentRatingModelFactory,
+)
+from src.analytics.models.factories.brand_rating_model_factory import (
+    BrandRatingModelFactory,
+)
 from src.helpers import DBConnector
 from src.helpers import LogDBConnector  # Import the new LogDBConnector
 
@@ -59,7 +63,9 @@ class Pipeline:
                 db_path=os.path.join(self.connector_folder, "analytical_sandbox.duckdb")
             ),
             "feature_engineering_connector": DBConnector(
-                db_path=os.path.join(self.connector_folder, "feature_engineering.duckdb")
+                db_path=os.path.join(
+                    self.connector_folder, "feature_engineering.duckdb"
+                )
             ),
         }
 
@@ -143,8 +149,13 @@ class Pipeline:
         """Executes a specific phase if it exists in the defined storage"""
         if stage_name in self.stages:
             self.stages[stage_name]()
+        elif stage_name == "training":
+            self._train_models()
+        elif stage_name == "validation":
+            return self._validate_models()
         else:
             print(f"Stage '{stage_name}' not found in pipeline.")
+        return None
 
     def execute_all_stages(self):
         """Executes all phases of the pipeline in order"""
@@ -156,15 +167,29 @@ class Pipeline:
 
     def _train_models(self):
         # Due to the limited remaining time, we won't import dynamically the classes
-        ModelTrainingLayer(self.connectors.get("feature_engineering_connector"), r"./data/models", AccidentRatingModelFactory()).execute()
-        ModelTrainingLayer(self.connectors.get("feature_engineering_connector"), r"./data/models", BrandRatingModelFactory()).execute()
+        ModelTrainingLayer(
+            self.connectors.get("feature_engineering_connector"),
+            r"./data/models",
+            AccidentRatingModelFactory(),
+        ).execute()
+        ModelTrainingLayer(
+            self.connectors.get("feature_engineering_connector"),
+            r"./data/models",
+            BrandRatingModelFactory(),
+        ).execute()
 
     def _validate_models(self):
         # Due to the limited remaining time, we won't import dynamically the classes
-        metrics_accident = ModelValidatorLayer(self.connectors.get("feature_engineering_connector"), r"./data/models",
-                           AccidentRatingModelFactory()).execute()
-        metrics_brand = ModelValidatorLayer(self.connectors.get("feature_engineering_connector"), r"./data/models",
-                           BrandRatingModelFactory()).execute()
+        metrics_accident = ModelValidatorLayer(
+            self.connectors.get("feature_engineering_connector"),
+            r"./data/models",
+            AccidentRatingModelFactory(),
+        ).execute()
+        metrics_brand = ModelValidatorLayer(
+            self.connectors.get("feature_engineering_connector"),
+            r"./data/models",
+            BrandRatingModelFactory(),
+        ).execute()
         return {"accident": metrics_accident, "brand": metrics_brand}
 
 

@@ -12,7 +12,7 @@ class MVCCrashTrusted(Trusted):
         return [
             t
             for t in super()._list_tables()
-            if t.startswith("motorvehiclecollisionscrashes")
+            if t.startswith("motorvehiclecollisions_crashes")
         ]
 
     def _drop_insignificant_columns(self, df: pd.DataFrame) -> pd.DataFrame:

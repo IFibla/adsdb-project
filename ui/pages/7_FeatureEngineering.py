@@ -26,3 +26,17 @@ st.markdown(
 )
 
 st.write("## Safety Rating by Accidents")
+
+st.markdown(
+    "The Accident Feature Engineering layer modifies the data to prepare it for machine learning. Vehicle age "
+    "is calculated from the manufacturing year, and the original year column is removed to simplify the dataset. "
+    "Vehicle make is transformed into numerical embeddings, which better represent categorical information for "
+    "the model, and the original make column is dropped. Overall ratings are standardized by limiting their range "
+    "to 0-5 and rounding them to the nearest 0.5 for consistency.\n\nTo address missing data, iterative imputation "
+    "is applied to fill gaps in age, gender, and ratings, ensuring the dataset is complete. Gender is first encoded "
+    "as numeric values and then converted into one-hot encoding to enhance its usability for machine learning "
+    "algorithms. Irrelevant columns, such as IDs, are removed to avoid unnecessary noise. Data types, like age, are "
+    "adjusted to ensure consistency and compatibility with the modeling process. These transformations result in a "
+    "clean, structured dataset ready for analysis."
+    ""
+)
