@@ -3,7 +3,13 @@ import plotly.express as px
 import streamlit as st
 import pandas as pd
 import pickle
+import sys
+import os
 
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_script_dir, "..", ".."))
+sys.path.insert(0, project_root)
+from src.embeddings.car_make import CarMakeEmbedding
 
 st.title("Models")
 
@@ -53,10 +59,20 @@ st.image("./vae_diagram.png", caption="Sunrise by the mountains")
 
 st.write("## Safety Rating by Brand")
 
+st.markdown(
+    "The code evaluates two machine learning models, Random Forest and K-Nearest Neighbors (KNN), using a technique "
+    "called `GridSearchCV` to find the best performing model. `GridSearchCV` systematically tests different "
+    "combinations of hyperparameters for each model and identifies the combination that yields the highest "
+    "cross-validation score. This score is an estimate of the model's performance on unseen data. Based on the "
+    "results, the Random Forest model outperformed the KNN model, achieving a higher cross-validation score and "
+    "likely demonstrating better generalization ability on the test set. This suggests that, for this specific "
+    "dataset and problem, the Random Forest algorithm with the optimized hyperparameters is the more suitable "
+    "choice for classification."
+)
+
 filename = "./models/rf_brands.pkl"
 with open(filename, "rb") as file:
     loaded_model = pickle.load(file)
-
 
 col1, col2 = st.columns([1, 1])
 make = col1.selectbox(
@@ -79,7 +95,24 @@ make = col1.selectbox(
     ),
 )
 
-year = col2.slider("Vehicle Year", 1, 30, 1)
+year = col2.slider("Vehicle Age", 1, 30, 1)
 
+cme = CarMakeEmbedding(
+    label_encoder="./models/encoder.pkl",
+    pkl_path="./models/embedding.pkl",
+)
+
+embedding = cme.execute(make).tolist()
+df = pd.DataFrame(
+    [embedding[0] + [year]], columns=[f"make_{i}" for i in range(10)] + ["vehicle_age"]
+)
+prediction = loaded_model.predict(df)[0]
+
+st_star_rating(
+    label="Model prediction",
+    maxValue=5,
+    defaultValue=prediction,
+    read_only=True,
+)
 
 st.write("## Safety Rating by Accidents")
