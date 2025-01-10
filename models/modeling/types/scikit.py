@@ -22,14 +22,19 @@ class SciKitModel(Model, ABC):
     def create(self):
         pass
 
-    def fit(self, X_train, y_train):
+    def fit(self, training_table, target_column):
+        self.train_df = self.feature_db_connector.get_table_as_dataframe(training_table)
+        X_train = self.train_df.drop(columns=[target_column])
+        y_train = self.train_df[target_column]
         self.model.fit(X_train, y_train)
 
-    def predict(self, X_test):
+    def predict(self, testing_table, target_column):
+        self.test_df = self.feature_db_connector.get_table_as_dataframe(testing_table)
+        X_test = self.test_df.drop(columns=[target_column])
         return self.model.predict(X_test)
 
     @abstractmethod
-    def get_metrics(self, y_test, y_pred)-> dict:
+    def get_metrics(self, y_test, y_pred) -> dict:
         pass
 
     def save(self, path: str):

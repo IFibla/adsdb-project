@@ -24,11 +24,11 @@ class Model(ABC):
         pass
 
     @abstractmethod
-    def fit(self, X_train, y_train):
+    def fit(self, training_table, target_column):
         pass
 
     @abstractmethod
-    def predict(self, X_test):
+    def predict(self, testing_table, target_column):
         pass
 
     @abstractmethod

@@ -1,6 +1,6 @@
 import os
 
-from src.embeddings.car_make import CarMakeEmbedding
+from src.analytics.models.car_make import CarMakeEmbedding
 from src.helpers.db_connector import (
     DBConnector,
 )
