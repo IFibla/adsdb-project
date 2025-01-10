@@ -29,9 +29,7 @@ class BrandsFeatureEngineering(FeatureEngineering):
             pd.DataFrame: The transformed DataFrame.
         """
         df["vehicle_age"] = date.today().year - df["vehicle_year"]
-        df["norm_overall_rating"] = df["overall_rating"] / 5
 
-        # Generate vehicle make embeddings
         df["vehicle_make_embedding"] = df["vehicle_make"].apply(
             lambda x: self.cme.execute(x)[0]
         )
@@ -41,12 +39,10 @@ class BrandsFeatureEngineering(FeatureEngineering):
         )
         df = pd.concat([df.drop(columns=["vehicle_make_embedding"]), make_df], axis=1)
 
-        # Drop rows with missing values
         df.dropna(inplace=True)
 
-        # Select relevant features
-        df = df[
-            [f"make_{i}" for i in range(10)] + ["vehicle_age", "norm_overall_rating"]
-        ]  # Include normalized rating
+        df = df[[f"make_{i}" for i in range(10)] + ["vehicle_age", "overall_rating"]]
+
+        df["overall_rating"] = df["overall_rating"].astype(int)
 
         return df

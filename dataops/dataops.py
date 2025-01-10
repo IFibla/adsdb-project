@@ -36,16 +36,18 @@ class DataOps:
         Executes the entire pipeline.
         """
         print("Starting full pipeline execution...")
-        self.pipeline.execute_all_stages()
+        execution_metrics = self.pipeline.execute_all_stages()
         print("Full pipeline execution completed.")
+        print(execution_metrics)
 
     def execute_stage(self, stage_name: str):
         """
         Executes a specific stage of the pipeline.
         """
         print(f"Starting execution of stage: {stage_name}")
-        self.pipeline.execute_stage(stage_name)
+        result = self.pipeline.execute_stage(stage_name)
         print(f"Execution of stage '{stage_name}' completed.")
+        return result
 
     def get_execution_logs(self):
         """

@@ -34,28 +34,28 @@ data quality standards in complex data environments.
 )
 
 
-st.write("# Motor Vehicle Collisions")
+st.write("## Motor Vehicle Collisions")
 
 with st.expander("Motor Vehicle Collisions Crash"):
-    st.dataframe(pd.read_csv("./sample_tables/mvc_crash.csv", index_col=9))
-    p = open("./profilings/mvc_crash.html")
+    st.dataframe(pd.read_csv("ui/sample_tables/mvc_crash.csv", index_col=9))
+    p = open("ui/profilings/mvc_crash.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 with st.expander("Motor Vehicle Collisions Person"):
-    st.dataframe(pd.read_csv("./sample_tables/mvc_person.csv", index_col=1))
-    p = open("./profilings/mvc_person.html")
+    st.dataframe(pd.read_csv("ui/sample_tables/mvc_person.csv", index_col=1))
+    p = open("ui/profilings/mvc_person.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 with st.expander("Motor Vehicle Collisions Vehicles"):
-    st.dataframe(pd.read_csv("./sample_tables/mvc_vehicles.csv", index_col=1))
-    p = open("./profilings/mvc_vehicles.html")
+    st.dataframe(pd.read_csv("ui/sample_tables/mvc_vehicles.csv", index_col=1))
+    p = open("ui/profilings/mvc_vehicles.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)
 
 
 st.write("## National Highway Traffic Safety Administration")
 with st.expander("Vehicle Safety Rating"):
-    st.dataframe(pd.read_csv("./sample_tables/nhtsa_safety_rating.csv"))
-    p = open("./profilings/nhtsa_safety_rating.html")
+    st.dataframe(pd.read_csv("ui/sample_tables/nhtsa_safety_rating.csv"))
+    p = open("ui/profilings/nhtsa_safety_rating.html")
     st.components.v1.html(p.read(), scrolling=True, height=500)

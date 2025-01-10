@@ -1,6 +1,8 @@
 import os
 
-from src.embeddings.car_make import CarMakeEmbedding
+from sklearn.model_selection import train_test_split
+
+from src.analytics.models.car_make import CarMakeEmbedding
 from src.helpers.db_connector import (
     DBConnector,
 )
@@ -17,8 +19,8 @@ class FeatureEngineering(Layer):
     """
 
     cme = CarMakeEmbedding(
-        label_encoder=os.environ.get("CAR_MAKE_LABEL_ENCODER"),
-        pkl_path=os.environ.get("CAR_MAKE_TRAINED_EMBEDDING"),
+        label_encoder=r'data/models/encoder.pkl',
+        pkl_path=r'data/models/embedding.pkl',
     )
 
     def __init__(
@@ -70,6 +72,7 @@ class FeatureEngineering(Layer):
         """
         pass
 
+
     def execute(self):
         """
         Executes the data extraction, transformation, and loading process.
@@ -80,9 +83,21 @@ class FeatureEngineering(Layer):
             self._get_analytical_sandbox_table_name()
         )
         df = self._transform_dataframe(df)
+
+        train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
+
         self.feature_engineering_db_connector.insert_data(
-            self._get_feature_engineering_table_name(), df
+            f"{self._get_feature_engineering_table_name()}_train", train_df
         )
+
         print(
-            f"Table {self._get_feature_engineering_table_name()} created successfully."
+            f"Table {self._get_feature_engineering_table_name()}_train created successfully."
+        )
+
+        self.feature_engineering_db_connector.insert_data(
+            f"{self._get_feature_engineering_table_name()}_test", test_df
+        )
+
+        print(
+            f"Table {self._get_feature_engineering_table_name()}_test created successfully."
         )

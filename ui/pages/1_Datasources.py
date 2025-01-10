@@ -20,7 +20,7 @@ with st.expander("Motor Vehicle Collisions Crash"):
     )
     st.dataframe(
         pd.read_csv(
-            "../data/landing/persistent/motor_vehicle_collisions/crashes/2012.csv",
+            "./data/landing/persistent/motor_vehicle_collisions/crashes/2023.csv",
             nrows=10,
         )
     )
@@ -32,7 +32,7 @@ with st.expander("Motor Vehicle Collisions Person"):
     )
     st.dataframe(
         pd.read_csv(
-            "../data/landing/persistent/motor_vehicle_collisions/person/2012.csv",
+            "data/landing/persistent/motor_vehicle_collisions/person/2023.csv",
             nrows=10,
         )
     )
@@ -44,7 +44,7 @@ with st.expander("Motor Vehicle Collisions Vehicle"):
     )
     st.dataframe(
         pd.read_csv(
-            "../data/landing/persistent/motor_vehicle_collisions/vehicles/2012.csv",
+            "data/landing/persistent/motor_vehicle_collisions/vehicles/2023.csv",
             nrows=10,
         )
     )
