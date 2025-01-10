@@ -1,5 +1,11 @@
 import os
 import src
+from models.layers.analytics.model_predictor import ModelPredictorLayer
+from models.layers.analytics.model_training import ModelTrainingLayer
+from models.layers.analytics.model_validator import ModelValidatorLayer
+from src.analytics.feature_engineering import BrandsFeatureEngineering
+from src.analytics.models.factories.accident_rating_model_factory import AccidentRatingModelFactory
+from src.analytics.models.factories.brand_rating_model_factory import BrandRatingModelFactory
 from src.helpers import DBConnector
 from src.helpers import LogDBConnector  # Import the new LogDBConnector
 
@@ -25,6 +31,8 @@ class Pipeline:
             "formatted": self.formatted_phase,
             "trusted": self.trusted_phase,
             "exploitation": self.exploitation_phase,
+            "analytical_sandbox": self.analytical_sandbox_phase,
+            "feature_engineering": self.feature_engineering_phase,
         }
 
         self.phase_constructor_args = {
@@ -32,6 +40,8 @@ class Pipeline:
             "formatted": self._formatted_constructor_args,
             "trusted": self._trusted_constructor_args,
             "exploitation": self._exploitation_constructor_args,
+            "analytical_sandbox": self._analytical_sandbox_constructor_args,
+            "feature_engineering": self._feature_engineering_constructor_args,
         }
 
     def _load_connectors(self) -> None:
@@ -44,6 +54,12 @@ class Pipeline:
             ),
             "exploitation_connector": DBConnector(
                 db_path=os.path.join(self.connector_folder, "exploitation.duckdb")
+            ),
+            "analytical_sandbox_connector": DBConnector(
+                db_path=os.path.join(self.connector_folder, "analytical_sandbox.duckdb")
+            ),
+            "feature_engineering_connector": DBConnector(
+                db_path=os.path.join(self.connector_folder, "feature_engineering.duckdb")
             ),
         }
 
@@ -65,7 +81,19 @@ class Pipeline:
             self.connectors.get("exploitation_connector"),
         )
 
-    def _execute_phase(self, phase_name: str, module, connector_name: str):
+    def _analytical_sandbox_constructor_args(self, cls):
+        return cls(
+            self.connectors.get("exploitation_connector"),
+            self.connectors.get("analytical_sandbox_connector"),
+        )
+
+    def _feature_engineering_constructor_args(self, cls):
+        return cls(
+            self.connectors.get("analytical_sandbox_connector"),
+            self.connectors.get("feature_engineering_connector"),
+        )
+
+    def _execute_phase(self, phase_name: str, module):
         print(f"Executing {phase_name} phase...")
 
         loaded_classes = [getattr(module, cls_name) for cls_name in module.__all__]
@@ -94,16 +122,22 @@ class Pipeline:
         print(f"{phase_name.capitalize()} phase completed.")
 
     def landing_phase(self):
-        self._execute_phase("landing", src.landing, "landing_connector")
+        self._execute_phase("landing", src.landing)
 
     def formatted_phase(self):
-        self._execute_phase("formatted", src.formatted, "formatted_connector")
+        self._execute_phase("formatted", src.formatted)
 
     def trusted_phase(self):
-        self._execute_phase("trusted", src.trusted, "trusted_connector")
+        self._execute_phase("trusted", src.trusted)
 
     def exploitation_phase(self):
-        self._execute_phase("exploitation", src.exploitation, "exploitation_connector")
+        self._execute_phase("exploitation", src.exploitation)
+
+    def analytical_sandbox_phase(self):
+        self._execute_phase("analytical_sandbox", src.analytical_sandbox)
+
+    def feature_engineering_phase(self):
+        self._execute_phase("feature_engineering", src.feature_engineering)
 
     def execute_stage(self, stage_name):
         """Executes a specific phase if it exists in the defined storage"""
@@ -116,6 +150,22 @@ class Pipeline:
         """Executes all phases of the pipeline in order"""
         for stage in self.stages:
             self.stages[stage]()
+
+        self._train_models()
+        return self._validate_models()
+
+    def _train_models(self):
+        # Due to the limited remaining time, we won't import dynamically the classes
+        ModelTrainingLayer(self.connectors.get("feature_engineering_connector"), r"./data/models", AccidentRatingModelFactory()).execute()
+        ModelTrainingLayer(self.connectors.get("feature_engineering_connector"), r"./data/models", BrandRatingModelFactory()).execute()
+
+    def _validate_models(self):
+        # Due to the limited remaining time, we won't import dynamically the classes
+        metrics_accident = ModelValidatorLayer(self.connectors.get("feature_engineering_connector"), r"./data/models",
+                           AccidentRatingModelFactory()).execute()
+        metrics_brand = ModelValidatorLayer(self.connectors.get("feature_engineering_connector"), r"./data/models",
+                           BrandRatingModelFactory()).execute()
+        return {"accident": metrics_accident, "brand": metrics_brand}
 
 
 if __name__ == "__main__":

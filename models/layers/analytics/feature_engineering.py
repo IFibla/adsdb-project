@@ -19,8 +19,8 @@ class FeatureEngineering(Layer):
     """
 
     cme = CarMakeEmbedding(
-        label_encoder=os.environ.get("CAR_MAKE_LABEL_ENCODER"),
-        pkl_path=os.environ.get("CAR_MAKE_TRAINED_EMBEDDING"),
+        label_encoder=r'data/models/encoder.pkl',
+        pkl_path=r'data/models/embedding.pkl',
     )
 
     def __init__(

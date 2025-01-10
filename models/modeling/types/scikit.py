@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 import joblib
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     accuracy_score,
@@ -15,23 +16,24 @@ from src.helpers import DBConnector
 
 
 class SciKitModel(Model, ABC):
-    def __init__(self, feature_db_connector: DBConnector):
-        super().__init__(feature_db_connector)
 
     @abstractmethod
     def create(self):
         pass
 
-    def fit(self, training_table, target_column):
-        self.train_df = self.feature_db_connector.get_table_as_dataframe(training_table)
-        X_train = self.train_df.drop(columns=[target_column])
-        y_train = self.train_df[target_column]
+    def fit(self):
+        train_df = self.feature_db_connector.get_table_as_dataframe(self.get_training_table_name())
+        X_train = train_df.drop(columns=[self.get_target_column_name()])
+        y_train = train_df[self.get_target_column_name()]
         self.model.fit(X_train, y_train)
 
-    def predict(self, testing_table, target_column):
-        self.test_df = self.feature_db_connector.get_table_as_dataframe(testing_table)
-        X_test = self.test_df.drop(columns=[target_column])
-        return self.model.predict(X_test)
+    def predict(self, x: pd.DataFrame):
+        return self.model.predict(x)
+
+    def validate(self):
+        test_df = self.feature_db_connector.get_table_as_dataframe(self.get_testing_table_name())
+        x_test = test_df.drop(columns=[self.get_target_column_name()])
+        return test_df[self.get_target_column_name()], self.predict(x_test)
 
     @abstractmethod
     def get_metrics(self, y_test, y_pred) -> dict:
