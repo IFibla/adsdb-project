@@ -16,8 +16,6 @@ class Model(ABC):
     def __init__(self, feature_db_connector: DBConnector):
         self.feature_db_connector = feature_db_connector
         self.model = None
-        self.train_df = None
-        self.test_df = None
 
     @abstractmethod
     def create(self):
@@ -89,4 +87,12 @@ class Model(ABC):
 
     @abstractmethod
     def get_target_column_name(self):
+        pass
+
+    @abstractmethod
+    def get_training_table_name(self):
+        pass
+
+    @abstractmethod
+    def get_testing_table_name(self):
         pass

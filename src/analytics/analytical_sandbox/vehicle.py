@@ -3,7 +3,7 @@ import pandas as pd
 from models.layers.analytics.analytical_sandbox import AnalyticalSandbox
 
 
-class BrandsAnalyticalSandbox(AnalyticalSandbox):
+class AccidentAnalyticalSandbox(AnalyticalSandbox):
     def _get_exploitation_table_name(self) -> str:
         return "safety_rating_by_accidents"
 
