@@ -7,4 +7,4 @@ class BrandRatingModelFactory(ModelFactory):
         return BrandsRatingModel()
 
     def get_model_filename(self):
-        return 'brand_rating_model.pkl'
+        return "brand_rating_model.pkl"

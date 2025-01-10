@@ -13,7 +13,7 @@ class ModelPredictorLayer(Layer):
         self,
         model_storing_path: str,
         predictor_dataframe: pd.DataFrame,
-        model_factory: ModelFactory
+        model_factory: ModelFactory,
     ):
         self.predictor_dataframe = predictor_dataframe
         self.model_storing_path = model_storing_path
@@ -21,6 +21,10 @@ class ModelPredictorLayer(Layer):
         self.model = self.model_factory.get_instance()
 
     def execute(self):
-        self.model.load(os.path.join(self.model_storing_path, self.model_factory.get_model_filename()))
+        self.model.load(
+            os.path.join(
+                self.model_storing_path, self.model_factory.get_model_filename()
+            )
+        )
         y_pred = self.model.predict(self.predictor_dataframe)
         return y_pred

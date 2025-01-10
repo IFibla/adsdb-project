@@ -12,7 +12,7 @@ class ModelValidatorLayer(Layer):
         self,
         feature_db_connector: DBConnector,
         model_storing_path: str,
-        model_factory: ModelFactory
+        model_factory: ModelFactory,
     ):
         self.feature_db_connector = feature_db_connector
         self.model_storing_path = model_storing_path
@@ -21,6 +21,10 @@ class ModelValidatorLayer(Layer):
         self.model.set_feature_db_connector(feature_db_connector)
 
     def execute(self):
-        self.model.load(os.path.join(self.model_storing_path, self.model_factory.get_model_filename()))
+        self.model.load(
+            os.path.join(
+                self.model_storing_path, self.model_factory.get_model_filename()
+            )
+        )
         y_test, y_pred = self.model.validate()
         return self.model.get_metrics(y_test, y_pred)

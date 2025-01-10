@@ -21,6 +21,8 @@ class AccidentRatingModel(SciKitModel):
         return {
             "mean_absolute_error": mean_absolute_error(y_test, y_pred),
             "mean_squared_error": mean_squared_error(y_test, y_pred),
-            "root_mean_squared_error": mean_squared_error(y_test, y_pred, squared=False),
+            "root_mean_squared_error": mean_squared_error(
+                y_test, y_pred, squared=False
+            ),
             "r2_score": r2_score(y_test, y_pred),
         }

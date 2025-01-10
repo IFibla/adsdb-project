@@ -12,7 +12,7 @@ class ModelTrainingLayer(Layer):
         self,
         feature_db_connector: DBConnector,
         model_storing_path: str,
-        model_factory: ModelFactory
+        model_factory: ModelFactory,
     ):
         self.feature_db_connector = feature_db_connector
         self.model_storing_path = model_storing_path
@@ -23,4 +23,8 @@ class ModelTrainingLayer(Layer):
     def execute(self):
         self.model.create()
         self.model.fit()
-        self.model.save(os.path.join(self.model_storing_path, self.model_factory.get_model_filename()))
+        self.model.save(
+            os.path.join(
+                self.model_storing_path, self.model_factory.get_model_filename()
+            )
+        )

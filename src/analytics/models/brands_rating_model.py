@@ -24,5 +24,3 @@ class BrandsRatingModel(SciKitModel):
             "raw": f1_score(y_test, y_pred, average=None),
             "confusion_matrix": confusion_matrix(y_test, y_pred),
         }
-
-

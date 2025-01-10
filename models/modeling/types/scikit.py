@@ -22,7 +22,9 @@ class SciKitModel(Model, ABC):
         pass
 
     def fit(self):
-        train_df = self.feature_db_connector.get_table_as_dataframe(self.get_training_table_name())
+        train_df = self.feature_db_connector.get_table_as_dataframe(
+            self.get_training_table_name()
+        )
         X_train = train_df.drop(columns=[self.get_target_column_name()])
         y_train = train_df[self.get_target_column_name()]
         self.model.fit(X_train, y_train)
@@ -31,7 +33,9 @@ class SciKitModel(Model, ABC):
         return self.model.predict(x)
 
     def validate(self):
-        test_df = self.feature_db_connector.get_table_as_dataframe(self.get_testing_table_name())
+        test_df = self.feature_db_connector.get_table_as_dataframe(
+            self.get_testing_table_name()
+        )
         x_test = test_df.drop(columns=[self.get_target_column_name()])
         return test_df[self.get_target_column_name()], self.predict(x_test)
 

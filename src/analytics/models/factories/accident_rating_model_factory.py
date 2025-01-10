@@ -8,4 +8,4 @@ class AccidentRatingModelFactory(ModelFactory):
         return AccidentRatingModel()
 
     def get_model_filename(self):
-        return 'accident_rating_model.pkl'
+        return "accident_rating_model.pkl"

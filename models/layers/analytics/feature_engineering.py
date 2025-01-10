@@ -19,8 +19,8 @@ class FeatureEngineering(Layer):
     """
 
     cme = CarMakeEmbedding(
-        label_encoder=r'data/models/encoder.pkl',
-        pkl_path=r'data/models/embedding.pkl',
+        label_encoder=r"data/models/encoder.pkl",
+        pkl_path=r"data/models/embedding.pkl",
     )
 
     def __init__(
@@ -71,7 +71,6 @@ class FeatureEngineering(Layer):
             pd.DataFrame: The transformed DataFrame.
         """
         pass
-
 
     def execute(self):
         """
