@@ -1,6 +1,9 @@
+from streamlit_star_rating import st_star_rating
 import plotly.express as px
 import streamlit as st
 import pandas as pd
+import pickle
+
 
 st.title("Models")
 
@@ -48,7 +51,35 @@ st.markdown(
 
 st.image("./vae_diagram.png", caption="Sunrise by the mountains")
 
-
 st.write("## Safety Rating by Brand")
+
+filename = "./models/rf_brands.pkl"
+with open(filename, "rb") as file:
+    loaded_model = pickle.load(file)
+
+
+col1, col2 = st.columns([1, 1])
+make = col1.selectbox(
+    "Car Make",
+    (
+        "honda",
+        "ford",
+        "alfa romeo",
+        "jeep",
+        "mazda",
+        "dodge",
+        "gmc",
+        "volvo",
+        "chevrolet",
+        "buick",
+        "ram",
+        "toyota",
+        "tesla",
+        "freightliner",
+    ),
+)
+
+year = col2.slider("Vehicle Year", 1, 30, 1)
+
 
 st.write("## Safety Rating by Accidents")
