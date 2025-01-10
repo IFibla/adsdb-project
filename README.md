@@ -60,8 +60,6 @@ This project is organized into several main folders, each with a specific purpos
 ## Repository Files
 
 - **`requirements.txt`**: Lists dependencies required to run the project.
-- **`.github`**: Holds configuration files for continuous integration and templates for issues and reports.
-- **`.idea`**: PyCharm project configuration files.
 
 ## How to Access the UI
 
@@ -76,14 +74,10 @@ This project has been primarily executed locally, without the use of Google Cola
    pip install -r requirements.txt
    ```
    Alternatively, you can manually install packages listed in **`requirements.txt`**.
-   
-2. **Navigate to the UI Folder**: Use the following CLI command to enter the UI folder:
+
+2**Start the UI Server**: Start the Streamlit server by running:
     ```bash
-    cd ui
-    ```
-3. **Start the UI Server**: Start the Streamlit server by running:
-    ```bash
-    streamlit run Hello.py
+    streamlit run ui/Hello.py
     ```
     This command will automatically open a webpage on a specified port, from which you can run the entire data pipeline and access additional documentation for the project.
    
